@@ -14,7 +14,8 @@
   --fg-dim:      #6e6a64;
   --line:        rgba(252, 248, 243, 0.14);
   --line-strong: rgba(252, 248, 243, 0.28);
-  --pink:        #ff3dd1;
+  --pink:        #ff3dd1;   /* akcent z loga — popisky, linky, tlačítka */
+  --pink-nadpis: #ff00f5;   /* sytější odstín pro hlavní nadpisy stránek */
   --pink-dim:    #c72ea3;
 
   --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
@@ -72,6 +73,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   text-transform: lowercase;
   margin: 0;
 }
+
+/* Název značky a názvy tří kategorií v hlavičkách stránek:
+   rebelie / živé plátno / nositelná rebelie / věčné plátno */
+.display--brand { color: var(--pink-nadpis); }
 
 /* Čeština má spoustu diakritiky nahoře (ř, é, ů, í). Při řádkování 0.84 by
    háčky a čárky lezly do řádku nad nimi, takže víceřádkovým nadpisům trochu
