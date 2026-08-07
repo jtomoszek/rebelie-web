@@ -5,7 +5,8 @@ Statický web (čisté HTML, CSS a JavaScript). Žádný build, žádné závisl
 
 Vizuál vychází ze šablony [Anderdark](https://anderdark-template.webflow.io/about) —
 tmavé pozadí, obří groteskní nadpisy, monospace popisky, tenké linky.
-Akcentní barva je růžová z loga značky (`#FF3DD1`).
+Akcentní barva je růžová z logotypu značky (`#FF00F5`) — jediná růžová
+na celém webu.
 
 ---
 
@@ -120,7 +121,7 @@ Všechny barvy, rozestupy a písma jsou pohromadě na začátku `css/style.css`
 v bloku `:root`. Změna akcentní barvy na celém webu je jeden řádek:
 
 ```css
---pink: #ff3dd1;
+--pink: #ff00f5;
 ```
 
 Nadpisy v hlavičkách stránek se dopočítávají JavaScriptem tak, aby přesně

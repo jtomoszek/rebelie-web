@@ -14,9 +14,10 @@
   --fg-dim:      #6e6a64;
   --line:        rgba(252, 248, 243, 0.14);
   --line-strong: rgba(252, 248, 243, 0.28);
-  --pink:        #ff3dd1;   /* akcent z loga — popisky, linky, tlačítka */
-  --pink-nadpis: #ff00f5;   /* sytější odstín pro hlavní nadpisy stránek */
-  --pink-dim:    #c72ea3;
+  /* Jediná růžová na celém webu — odstín z logotypu Rebelie.
+     Nadpisy, popisky, odkazy, tlačítka i čísla. Změna zde se propíše všude. */
+  --pink:        #ff00f5;
+  --pink-dim:    #c400bc;   /* ztlumená varianta pro jemné linky a pozadí */
 
   --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
   --font-mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -76,7 +77,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* Název značky a názvy tří kategorií v hlavičkách stránek:
    rebelie / živé plátno / nositelná rebelie / věčné plátno */
-.display--brand { color: var(--pink-nadpis); }
+.display--brand { color: var(--pink); }
 
 /* Čeština má spoustu diakritiky nahoře (ř, é, ů, í). Při řádkování 0.84 by
    háčky a čárky lezly do řádku nad nimi, takže víceřádkovým nadpisům trochu
@@ -812,7 +813,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* --- Upozornění pro klientku (dočasné) ---------------------------------- */
 .todo {
   border: 1px dashed var(--pink-dim);
-  background: rgba(255, 61, 209, 0.06);
+  background: rgba(255, 0, 245, 0.06);
   padding: 1rem 1.25rem;
   font-size: 0.8125rem;
   color: var(--fg-muted);
