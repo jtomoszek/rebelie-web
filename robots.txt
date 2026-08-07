@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /
+
+# Náhledová verze webu pro klientku — zatím obsahuje ukázkové texty.
+# Před spuštěním naostro tenhle soubor smažte a odstraňte
+# <meta name="robots" content="noindex, nofollow"> ze všech .html stránek.
