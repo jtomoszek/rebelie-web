@@ -20,7 +20,7 @@ a na `kontakt.html`.
 | Telefon | `+420 000 000 000` |
 | Odkaz na Instagram | prázdný odkaz |
 | Odkaz na Facebook | prázdný odkaz |
-| Město / ateliér | „Praha" |
+| Město / ateliér | „Ostrava" |
 | IČO, případně sídlo pro fakturaci | není nikde |
 
 > Až budou k dispozici, stačí je najít a nahradit ve všech `.html` souborech —
@@ -43,7 +43,7 @@ Například:
 
 ```
 2024 · World Bodypainting Festival · Klagenfurt, kategorie Brush & Sponge · 3. místo
-2023 · Mistrovství ČR v bodypaintingu · Praha, kategorie Special Effects · 1. místo
+2023 · Mistrovství ČR v bodypaintingu · Ostrava, kategorie Special Effects · 1. místo
 ```
 
 - Vejde se jich klidně **30 a víc**, sekce je na to připravená.
@@ -88,7 +88,7 @@ Objevují se v číslech na homepage i na stránce „O mně".
 | Počet realizací | 400+ |
 | Počet ocenění | 15+ |
 | Rok první soutěže | 2014 |
-| Působiště | Praha, celá ČR i zahraničí |
+| Působiště | Ostrava, celá ČR i zahraničí |
 
 ---
 
