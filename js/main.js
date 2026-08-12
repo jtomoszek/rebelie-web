@@ -1,4 +1,4 @@
-/* REBELIE — navigace, lightbox, odhalování při scrollu, marquee */
+/* REBELIE — navigace, nadpisy na šířku, lightbox, odhalování při scrollu */
 (function () {
   'use strict';
 
@@ -24,9 +24,13 @@
   }
 
   /* --- Nadpisy roztažené přesně na šířku sloupce ------------------------ */
-  /* CSS clamp() neví, jak je text široký, takže dlouhé i krátké nadpisy
-     vycházejí různě. Tohle dopočítá velikost tak, aby nejdelší řádek
-     přesně vyplnil rodičovský sloupec. Bez JS zůstane v platnosti clamp(). */
+  /* CSS clamp() neví, jak je text široký, takže „rebelie" a „co porota
+     nepřehlédla" by při stejném nastavení vyšly úplně jinak. Tohle dopočítá
+     velikost tak, aby nejdelší řádek přesně vyplnil rodičovský sloupec —
+     na mobilu i na ultraširokém monitoru. Bez JS platí clamp() z CSS. */
+  var MIN_PX = 28;    // pod tím už by nadpis nepůsobil jako nadpis
+  var MAX_PX = 460;   // strop pro velmi široké monitory
+
   var fitTargets = Array.prototype.slice.call(document.querySelectorAll('[data-fit]'));
 
   function fitText(el) {
@@ -51,24 +55,43 @@
     for (var i = 0; i < rects.length; i++) {
       if (rects[i].width > widest) widest = rects[i].width;
     }
+    // Nulová šířka textu znamená, že stránka ještě není vykreslená
+    // (skryté okno, náhledový panel). Vrátit CSS zálohu a nechat
+    // pozdější resize/RO, ať to přeměří — nesmí se tu nic „zamknout".
     if (!widest) { el.style.fontSize = ''; return; }
 
-    el.style.fontSize = (REF * avail / widest) + 'px';
+    var size = REF * avail / widest;
+    el.style.fontSize = Math.max(MIN_PX, Math.min(MAX_PX, size)) + 'px';
   }
 
   function fitAll() { fitTargets.forEach(fitText); }
 
   if (fitTargets.length) {
     fitAll();
-    // písma z Google Fonts dorazí až po prvním vykreslení — přeměřit
+
+    // Písma z Google Fonts dorazí až po prvním vykreslení — přeměřit,
+    // jinak by velikost seděla na náhradní písmo.
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(fitAll);
     }
+
+    // ResizeObserver chytí i změny, které resize okna nehlásí — přepnutí
+    // mřížky hero sekce, otočení telefonu, zobrazení posuvníku.
+    if (window.ResizeObserver) {
+      var ro = new ResizeObserver(function () { fitAll(); });
+      fitTargets.forEach(function (el) {
+        if (el.parentElement) ro.observe(el.parentElement);
+      });
+    }
+
+    // resize okna navíc vždy — pojistka pro případ, kdy RO proběhl
+    // ve chvíli, kdy okno ještě nemělo rozměry (skrytá karta, náhled).
     var fitTimer;
     window.addEventListener('resize', function () {
       clearTimeout(fitTimer);
       fitTimer = setTimeout(fitAll, 120);
     });
+    window.addEventListener('pageshow', fitAll);
   }
 
   /* --- Odhalování prvků při scrollu ------------------------------------- */
@@ -101,8 +124,22 @@
   });
 
   /* --- Lightbox --------------------------------------------------------- */
-  var items = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
-  if (!items.length) return;
+  /* Pracuje nad polem položek {full, alt}. Díky tomu ho umí otevřít jak
+     dlaždice v galerii, tak obálka akce, jejíž fotky nejsou v HTML,
+     ale v datech (jinak by na stránce viselo 300 skrytých obrázků). */
+
+  var galleryItems = Array.prototype.slice.call(document.querySelectorAll('[data-lightbox]'));
+  var eventCovers = Array.prototype.slice.call(document.querySelectorAll('[data-udalost]'));
+  if (!galleryItems.length && !eventCovers.length) return;
+
+  var udalosti = {};
+  var dataTag = document.getElementById('udalosti-data');
+  if (dataTag) {
+    // Uvnitř bloku zůstává značka pro generátor (<!--UDALOSTI-DATA-->).
+    // JSON komentáře nezná, takže se před parsováním musí odstranit.
+    var raw = dataTag.textContent.replace(/<!--[\s\S]*?-->/g, '').trim();
+    try { udalosti = raw ? JSON.parse(raw) : {}; } catch (err) { udalosti = {}; }
+  }
 
   var lb = document.createElement('div');
   lb.className = 'lightbox';
@@ -119,20 +156,31 @@
 
   var lbImg = lb.querySelector('.lightbox__img');
   var lbCounter = lb.querySelector('.lightbox__counter');
+  var lbTitle = null;
+  var seznam = [];
   var index = 0;
   var lastFocused = null;
 
   function show(i) {
-    index = (i + items.length) % items.length;
-    var el = items[index];
-    var full = el.getAttribute('data-full') || el.querySelector('img').src;
-    var img = el.querySelector('img');
-    lbImg.src = full;
-    lbImg.alt = img ? img.alt : '';
-    lbCounter.textContent = (index + 1) + ' / ' + items.length;
+    if (!seznam.length) return;
+    index = (i + seznam.length) % seznam.length;
+    var polozka = seznam[index];
+    lbImg.src = polozka.full;
+    lbImg.alt = polozka.alt || '';
+    lbCounter.textContent = (lbTitle ? lbTitle + ' — ' : '') +
+      (index + 1) + ' / ' + seznam.length;
+
+    // předstih: načíst sousední fotky, aby listování neproblikávalo
+    [index + 1, index - 1].forEach(function (j) {
+      var s = seznam[(j + seznam.length) % seznam.length];
+      if (s) { var im = new Image(); im.src = s.full; }
+    });
   }
 
-  function open(i) {
+  function open(items, i, nadpis) {
+    if (!items || !items.length) return;
+    seznam = items;
+    lbTitle = nadpis || null;
     lastFocused = document.activeElement;
     show(i);
     lb.setAttribute('data-open', 'true');
@@ -147,10 +195,35 @@
     if (lastFocused) lastFocused.focus();
   }
 
-  items.forEach(function (el, i) {
+  // dlaždice v galeriích (bodypainting, oblečení, obrazy, ukázky)
+  var galerieSeznam = galleryItems.map(function (el) {
+    var img = el.querySelector('img');
+    return {
+      full: el.getAttribute('data-full') || (img && img.src),
+      alt: img ? img.alt : ''
+    };
+  });
+
+  galleryItems.forEach(function (el, i) {
     el.addEventListener('click', function (e) {
       e.preventDefault();
-      open(i);
+      open(galerieSeznam, i);
+    });
+  });
+
+  // obálky akcí — fotky se berou z dat
+  eventCovers.forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      var slug = el.getAttribute('data-udalost');
+      var u = udalosti[slug];
+      if (!u) return;
+      open(u.fotky.map(function (soubor, i) {
+        return {
+          full: 'img/udalosti/' + slug + '/' + soubor,
+          alt: u.nazev + ' — fotografie ' + (i + 1)
+        };
+      }), 0, u.nazev);
     });
   });
 
@@ -165,4 +238,16 @@
     if (e.key === 'ArrowLeft') show(index - 1);
     if (e.key === 'ArrowRight') show(index + 1);
   });
+
+  // listování prstem na mobilu
+  var touchX = null;
+  lb.addEventListener('touchstart', function (e) {
+    touchX = e.changedTouches[0].clientX;
+  }, { passive: true });
+  lb.addEventListener('touchend', function (e) {
+    if (touchX === null) return;
+    var dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 45) show(index + (dx < 0 ? 1 : -1));
+    touchX = null;
+  }, { passive: true });
 })();

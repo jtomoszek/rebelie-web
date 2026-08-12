@@ -28,29 +28,33 @@ a na `kontakt.html`.
 
 ---
 
-## 2. Ocenění — `oceneni.html`
+## 2. Výstavy a soutěže — `oceneni.html`
 
-Tohle byl výslovný požadavek, takže je na to samostatná stránka i ukázka na
-homepage. **Aktuálně je tam 13 vymyšlených položek.**
+Stránka je postavená ze složky **„Fofo Rebelie/Výstavy a soutěže"** —
+18 skutečných akcí, 313 fotek, každá akce má vlastní galerii. Tady se nic
+nevymýšlelo.
 
-Prosím dodat ve formátu, jeden řádek na ocenění:
+Co ale chybí a **doplní jen Pavla** — v souboru `data/udalosti.json`
+(a poté spustit `python3 build-udalosti.py`):
 
-```
-rok · název soutěže nebo výstavy · místo konání a kategorie · umístění
-```
+- **`umisteni`** — u soutěží napsat obsazené místo („1. místo",
+  „finále"…). Zobrazí se jako růžový štítek přímo u akce. Týká se hlavně:
+  Mistrovství ČR 2023, Mistrovství Slovenska 2023 a festivalů živých soch.
+- **`typ`** a **`misto`** — kde je teď prázdno (např. Beats for Love, Coal,
+  Sweetsen fest — u těch se z názvu složky nedalo nic bezpečně odvodit).
+- **`popis`** — volitelná jedna věta k akci.
+- **`rok`** — chybí u tří akcí: Expat centre, Otevření Casina, Sweetsen fest
+  (nebyl v názvu složky). Stačí ho dopsat do názvu složky a spustit
+  `python3 pripravit-udalosti.py --jen-data`.
 
-Například:
+### Přidání nové akce
 
-```
-2024 · World Bodypainting Festival · Klagenfurt, kategorie Brush & Sponge · 3. místo
-2023 · Mistrovství ČR v bodypaintingu · Ostrava, kategorie Special Effects · 1. místo
-```
+1. založit složku „Název akce ROK" ve „Fofo Rebelie/Výstavy a soutěže"
+2. fotky pojmenovat „Název akce ROK 1.jpg", „… 2.jpg" atd.
+3. spustit `python3 pripravit-udalosti.py` a pak `python3 build-udalosti.py`
 
-- Vejde se jich klidně **30 a víc**, sekce je na to připravená.
-- Hodí se i **fotky oceněných děl** a diplomů — je pro ně místo v sekci
-  „Soutěžní tvorba" ve spodní části stránky.
-- Na homepage a na stránce „O mně" je uvedeno **„15+ ocenění"** — až bude
-  znám skutečný počet, upravit i tam.
+Videa (.mp4) ve složkách zatím web nepoužívá — je jich 7; kdyby o ně byl
+zájem, dají se doplnit do galerií akcí.
 
 ---
 
@@ -86,7 +90,7 @@ Objevují se v číslech na homepage i na stránce „O mně".
 |---|---|
 | Roky praxe | 12 |
 | Počet realizací | 400+ |
-| Počet ocenění | 15+ |
+| Počet výstav a soutěží | 18 (skutečný, počítá se automaticky) |
 | Rok první soutěže | 2014 |
 | Působiště | Ostrava, celá ČR i zahraničí |
 
@@ -165,7 +169,7 @@ Vyhledáním následujícího si je snadno projdete:
 | `ahoj@rebelie.art` | e-mail (všechny stránky) |
 | `+420 000 000 000` | telefon (všechny stránky) |
 | `instagram.com/` | odkazy na sociální sítě |
-| `class="award"` | jednotlivá ocenění |
+| `data/udalosti.json` | výstavy a soutěže (umístění, typ, místo) |
 | `class="svc__price"` | ceny |
-| `class="stat__num"` | čísla (12 let, 15+, 400+) |
+| `class="stat__num"` | čísla (12 let, 18 akcí, 400+) |
 | `class="todo"` | dvě dočasné poznámky přímo ve webu — **před spuštěním smazat** |

@@ -600,6 +600,87 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 }
 .stat__desc { font-size: 0.8125rem; color: var(--fg-muted); margin: 0; line-height: 1.7; }
 
+/* --- Výstavy a soutěže (dlaždice akcí) ---------------------------------- */
+.events {
+  display: grid;
+  gap: var(--gap);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+}
+
+.event {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  padding: clamp(0.6rem, 0.9vw, 0.85rem);
+  transition: border-color 0.35s var(--ease), background 0.35s var(--ease);
+}
+.event:hover,
+.event:focus-within { border-color: var(--line-strong); background: #232320; }
+
+.event__cover {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: #000;
+}
+.event__cover img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s var(--ease);
+}
+.event:hover .event__cover img { transform: scale(1.05); }
+
+.event__count {
+  position: absolute;
+  right: 0.5rem; bottom: 0.5rem;
+  background: rgba(0, 0, 0, 0.72);
+  color: var(--fg);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.55rem;
+}
+
+.event__body {
+  padding-top: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  flex: 1;
+}
+.event__year {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  color: var(--pink);
+}
+.event__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  margin: 0;
+  /* Názvy akcí jsou různě dlouhé — ať se lámou, ne přetékají. */
+  overflow-wrap: anywhere;
+}
+.event__meta { font-size: 0.8125rem; color: var(--fg-muted); margin: 0; }
+
+.event__place {
+  margin: 0.4rem 0 0;
+  align-self: flex-start;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #000;
+  background: var(--pink);
+  padding: 0.25rem 0.5rem;
+}
+
 /* --- Ocenění ------------------------------------------------------------ */
 .awards { border-top: 1px solid var(--line); }
 

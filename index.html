@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css?v=3">
 </head>
 <body>
 <a class="skip-link" href="#main">Přejít na obsah</a>
@@ -33,7 +33,7 @@
         <li><a href="bodypainting.html">Živé plátno</a></li>
         <li><a href="obleceni.html">Nositelná rebelie</a></li>
         <li><a href="obrazy.html">Věčné plátno</a></li>
-        <li><a href="oceneni.html">Ocenění</a></li>
+        <li><a href="oceneni.html">Výstavy</a></li>
         <li><a href="o-mne.html">O mně</a></li>
       </ul>
     </nav>
@@ -51,7 +51,7 @@
   <a href="bodypainting.html">živé plátno</a>
   <a href="obleceni.html">nositelná rebelie</a>
   <a href="obrazy.html">věčné plátno</a>
-  <a href="oceneni.html">ocenění</a>
+  <a href="oceneni.html">výstavy a soutěže</a>
   <a href="o-mne.html">o mně</a>
   <a href="kontakt.html">kontakt</a>
 </div>
@@ -186,9 +186,9 @@
         <p class="stat__desc">Od prvních zkoušek na kamarádkách po mezinárodní soutěže a firemní zakázky.</p>
       </div>
       <div class="stat" data-reveal data-reveal-delay="120">
-        <p class="stat__num">15+</p>
-        <p class="stat__label">ocenění a umístění</p>
-        <p class="stat__desc">Výstavy a soutěže v bodypaintingu doma i v zahraničí. <a class="link-underline" href="oceneni.html">Celý seznam</a></p>
+        <p class="stat__num" data-pocet-akci>18</p>
+        <p class="stat__label">výstav a soutěží</p>
+        <p class="stat__desc">Festivaly, galerie a mistrovství v ČR i na Slovensku. <a class="link-underline" href="oceneni.html">Celý seznam</a></p>
       </div>
       <div class="stat" data-reveal data-reveal-delay="240">
         <p class="stat__num">400+</p>
@@ -198,36 +198,69 @@
     </div>
   </section>
 
-  <!-- ================= OCENĚNÍ (ukázka) ================= -->
+  <!-- ================= VÝSTAVY A SOUTĚŽE (ukázka) ================= -->
   <section class="wrap section--tight">
-    <p class="eyebrow" data-reveal>Ocenění</p>
+    <p class="eyebrow" data-reveal>Výstavy a soutěže</p>
     <h2 class="display display--l" data-reveal style="margin-bottom: clamp(2rem, 4vw, 3rem);">
-      barvy, které<br>porota nepřehlédla
+      kde jsem<br>naposledy malovala
     </h2>
 
-    <div class="awards" data-reveal>
-      <div class="award">
-        <span class="award__year">2024</span>
-        <h3 class="award__title">Mezinárodní bodypainting festival</h3>
-        <p class="award__event">Kategorie Brush &amp; Sponge</p>
-        <p class="award__place">1. místo</p>
-      </div>
-      <div class="award">
-        <span class="award__year">2023</span>
-        <h3 class="award__title">Czech Bodypainting Championship</h3>
-        <p class="award__event">Kategorie Special Effects</p>
-        <p class="award__place">2. místo</p>
-      </div>
-      <div class="award">
-        <span class="award__year">2022</span>
-        <h3 class="award__title">Světový pohár v bodypaintingu</h3>
-        <p class="award__event">Kategorie Airbrush</p>
-        <p class="award__place">Finále</p>
-      </div>
+    <div class="events" data-generovane="UDALOSTI">
+      <article class="event" data-reveal>
+        <button class="event__cover" type="button" data-udalost="colours-of-ostrava-2026"
+                aria-label="Otevřít galerii: Colours of Ostrava — 35 fotek">
+          <img src="img/udalosti/colours-of-ostrava-2026/thumb/colours-of-ostrava-2026-01.jpg" alt="Colours of Ostrava — fotografie z akce" width="933" height="1400" loading="lazy">
+          <span class="event__count">35 fotek</span>
+        </button>
+        <div class="event__body">
+          <span class="event__year">2026</span>
+          <h3 class="event__name">Colours of Ostrava</h3>
+          <p class="event__meta">Ostrava</p>
+        </div>
+      </article>
+
+      <article class="event" data-reveal>
+        <button class="event__cover" type="button" data-udalost="mezinarodni-festival-zivych-soch-a-bodyartu-2026"
+                aria-label="Otevřít galerii: Mezinárodní festival živých soch a bodyartu — 26 fotek">
+          <img src="img/udalosti/mezinarodni-festival-zivych-soch-a-bodyartu-2026/thumb/mezinarodni-festival-zivych-soch-a-bodyartu-2026-01.jpg" alt="Mezinárodní festival živých soch a bodyartu — fotografie z akce" width="1400" height="931" loading="lazy">
+          <span class="event__count">26 fotek</span>
+        </button>
+        <div class="event__body">
+          <span class="event__year">2026</span>
+          <h3 class="event__name">Mezinárodní festival živých soch a bodyartu</h3>
+          <p class="event__meta">Festival</p>
+        </div>
+      </article>
+
+      <article class="event" data-reveal>
+        <button class="event__cover" type="button" data-udalost="sdilko-poruba-2026"
+                aria-label="Otevřít galerii: Sdílko Poruba — 28 fotek">
+          <img src="img/udalosti/sdilko-poruba-2026/thumb/sdilko-poruba-2026-01.jpg" alt="Sdílko Poruba — fotografie z akce" width="1050" height="1400" loading="lazy">
+          <span class="event__count">28 fotek</span>
+        </button>
+        <div class="event__body">
+          <span class="event__year">2026</span>
+          <h3 class="event__name">Sdílko Poruba</h3>
+          <p class="event__meta">Ostrava-Poruba</p>
+        </div>
+      </article>
+
+      <article class="event" data-reveal>
+        <button class="event__cover" type="button" data-udalost="beats-for-love-2025"
+                aria-label="Otevřít galerii: Beats for Love — 21 fotek">
+          <img src="img/udalosti/beats-for-love-2025/thumb/beats-for-love-2025-01.jpg" alt="Beats for Love — fotografie z akce" width="1400" height="1050" loading="lazy">
+          <span class="event__count">21 fotek</span>
+        </button>
+        <div class="event__body">
+          <span class="event__year">2025</span>
+          <h3 class="event__name">Beats for Love</h3>
+        </div>
+      </article>
+      <!--UDALOSTI-->
     </div>
 
     <p style="margin-top: 2.5rem;">
-      <a class="btn" href="oceneni.html">Všechna ocenění <span class="btn__arrow" aria-hidden="true">↗</span></a>
+      <a class="btn" href="oceneni.html">Všechny výstavy a soutěže <span class="btn__arrow" aria-hidden="true">↗</span></a>
     </p>
   </section>
 
@@ -271,7 +304,7 @@
           <li><a href="bodypainting.html">Živé plátno — bodypainting</a></li>
           <li><a href="obleceni.html">Nositelná rebelie — oblečení</a></li>
           <li><a href="obrazy.html">Věčné plátno — obrazy</a></li>
-          <li><a href="oceneni.html">Ocenění</a></li>
+          <li><a href="oceneni.html">Výstavy a soutěže</a></li>
         </ul>
       </div>
       <div>
@@ -291,7 +324,11 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
+<script type="application/json" id="udalosti-data" data-generovane="UDALOSTI-DATA">
+      {"colours-of-ostrava-2026":{"nazev":"Colours of Ostrava","fotky":["colours-of-ostrava-2026-01.jpg","colours-of-ostrava-2026-02.jpg","colours-of-ostrava-2026-03.jpg","colours-of-ostrava-2026-04.jpg","colours-of-ostrava-2026-05.jpg","colours-of-ostrava-2026-06.jpg","colours-of-ostrava-2026-07.jpg","colours-of-ostrava-2026-08.jpg","colours-of-ostrava-2026-09.jpg","colours-of-ostrava-2026-10.jpg","colours-of-ostrava-2026-11.jpg","colours-of-ostrava-2026-12.jpg","colours-of-ostrava-2026-13.jpg","colours-of-ostrava-2026-14.jpg","colours-of-ostrava-2026-15.jpg","colours-of-ostrava-2026-16.jpg","colours-of-ostrava-2026-17.jpg","colours-of-ostrava-2026-18.jpg","colours-of-ostrava-2026-19.jpg","colours-of-ostrava-2026-20.jpg","colours-of-ostrava-2026-21.jpg","colours-of-ostrava-2026-22.jpg","colours-of-ostrava-2026-23.jpg","colours-of-ostrava-2026-24.jpg","colours-of-ostrava-2026-25.jpg","colours-of-ostrava-2026-26.jpg","colours-of-ostrava-2026-27.jpg","colours-of-ostrava-2026-28.jpg","colours-of-ostrava-2026-29.jpg","colours-of-ostrava-2026-30.jpg","colours-of-ostrava-2026-31.jpg","colours-of-ostrava-2026-32.jpg","colours-of-ostrava-2026-33.jpg","colours-of-ostrava-2026-34.jpg","colours-of-ostrava-2026-35.jpg"]},"mezinarodni-festival-zivych-soch-a-bodyartu-2026":{"nazev":"Mezinárodní festival živých soch a bodyartu","fotky":["mezinarodni-festival-zivych-soch-a-bodyartu-2026-01.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-02.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-03.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-04.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-05.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-06.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-07.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-08.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-09.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-10.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-11.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-12.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-13.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-14.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-15.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-16.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-17.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-18.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-19.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-20.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-21.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-22.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-23.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-24.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-25.jpg","mezinarodni-festival-zivych-soch-a-bodyartu-2026-26.jpg"]},"sdilko-poruba-2026":{"nazev":"Sdílko Poruba","fotky":["sdilko-poruba-2026-01.jpg","sdilko-poruba-2026-02.jpg","sdilko-poruba-2026-03.jpg","sdilko-poruba-2026-04.jpg","sdilko-poruba-2026-05.jpg","sdilko-poruba-2026-06.jpg","sdilko-poruba-2026-07.jpg","sdilko-poruba-2026-08.jpg","sdilko-poruba-2026-09.jpg","sdilko-poruba-2026-10.jpg","sdilko-poruba-2026-11.jpg","sdilko-poruba-2026-12.jpg","sdilko-poruba-2026-13.jpg","sdilko-poruba-2026-14.jpg","sdilko-poruba-2026-15.jpg","sdilko-poruba-2026-16.jpg","sdilko-poruba-2026-17.jpg","sdilko-poruba-2026-18.jpg","sdilko-poruba-2026-19.jpg","sdilko-poruba-2026-20.jpg","sdilko-poruba-2026-21.jpg","sdilko-poruba-2026-22.jpg","sdilko-poruba-2026-23.jpg","sdilko-poruba-2026-24.jpg","sdilko-poruba-2026-25.jpg","sdilko-poruba-2026-26.jpg","sdilko-poruba-2026-27.jpg","sdilko-poruba-2026-28.jpg"]},"beats-for-love-2025":{"nazev":"Beats for Love","fotky":["beats-for-love-2025-01.jpg","beats-for-love-2025-02.jpg","beats-for-love-2025-03.jpg","beats-for-love-2025-04.jpg","beats-for-love-2025-05.jpg","beats-for-love-2025-06.jpg","beats-for-love-2025-07.jpg","beats-for-love-2025-08.jpg","beats-for-love-2025-09.jpg","beats-for-love-2025-10.jpg","beats-for-love-2025-11.jpg","beats-for-love-2025-12.jpg","beats-for-love-2025-13.jpg","beats-for-love-2025-14.jpg","beats-for-love-2025-15.jpg","beats-for-love-2025-16.jpg","beats-for-love-2025-17.jpg","beats-for-love-2025-18.jpg","beats-for-love-2025-19.jpg","beats-for-love-2025-20.jpg","beats-for-love-2025-21.jpg"]}}
+      <!--UDALOSTI-DATA-->
+</script>
+<script src="js/main.js?v=3"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
