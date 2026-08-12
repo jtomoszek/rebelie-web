@@ -34,12 +34,14 @@ Stránka je postavená ze složky **„Fofo Rebelie/Výstavy a soutěže"** —
 18 skutečných akcí, 313 fotek, každá akce má vlastní galerii. Tady se nic
 nevymýšlelo.
 
-Co ale chybí a **doplní jen Pavla** — v souboru `data/udalosti.json`
+Umístění v soutěžích se na webu **záměrně neuvádějí** (rozhodnuto).
+Pole `umisteni` v `data/udalosti.json` proto zůstává prázdné — kdyby se
+názor někdy změnil, stačí ho vyplnit a spustit `python3 build-udalosti.py`;
+zobrazí se jako růžový štítek u akce.
+
+Co se hodí doplnit — v souboru `data/udalosti.json`
 (a poté spustit `python3 build-udalosti.py`):
 
-- **`umisteni`** — u soutěží napsat obsazené místo („1. místo",
-  „finále"…). Zobrazí se jako růžový štítek přímo u akce. Týká se hlavně:
-  Mistrovství ČR 2023, Mistrovství Slovenska 2023 a festivalů živých soch.
 - **`typ`** a **`misto`** — kde je teď prázdno (např. Beats for Love, Coal,
   Sweetsen fest — u těch se z názvu složky nedalo nic bezpečně odvodit).
 - **`popis`** — volitelná jedna věta k akci.
@@ -169,7 +171,7 @@ Vyhledáním následujícího si je snadno projdete:
 | `ahoj@rebelie.art` | e-mail (všechny stránky) |
 | `+420 000 000 000` | telefon (všechny stránky) |
 | `instagram.com/` | odkazy na sociální sítě |
-| `data/udalosti.json` | výstavy a soutěže (umístění, typ, místo) |
+| `data/udalosti.json` | výstavy a soutěže (typ, místo, popis) |
 | `class="svc__price"` | ceny |
 | `class="stat__num"` | čísla (12 let, 18 akcí, 400+) |
-| `class="todo"` | dvě dočasné poznámky přímo ve webu — **před spuštěním smazat** |
+| `class="todo"` | dočasná poznámka na obleceni.html — **před spuštěním smazat** |
