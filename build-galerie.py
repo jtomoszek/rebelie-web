@@ -10,7 +10,7 @@ Použití (ze složky web/):
 Až přibudou nové fotky:
     1. nahrajte je do web/img/<kategorie>/  (velká verze, max 1800 px)
     2. vytvořte zmenšený náhled do web/img/<kategorie>/thumb/ (max 900 px)
-       — o obojí se postará skript pripravit-fotky.sh
+       – o obojí se postará skript pripravit-fotky.sh
     3. spusťte tento skript znovu
 
 Skript je opakovaně spustitelný: dřívější vygenerovanou galerii přepíše.
@@ -76,7 +76,7 @@ def blok_galerie(kategorie, popisek):
 
         radky.append(
             '      <a class="gallery__item" href="%s" data-lightbox data-full="%s" title="%s">\n'
-            '        <img src="%s" alt="%s — %s"%s loading="lazy">\n'
+            '        <img src="%s" alt="%s – %s"%s loading="lazy">\n'
             '      </a>' % (velka, velka, jmeno, nahled, popisek, jmeno, atributy)
         )
 
@@ -96,7 +96,7 @@ def zapis(kategorie, stranka, popisek):
     znacka = "<!--GALERIE:%s-->" % kategorie
     novy = (blok + "\n      " + znacka) if blok else znacka
 
-    # Nahradí všechno mezi <div class="gallery"> a značkou — díky tomu
+    # Nahradí všechno mezi <div class="gallery"> a značkou – díky tomu
     # lze skript spouštět opakovaně.
     vzor = re.compile(
         r'(<div class="gallery">\n)(?:.*?)(\s*)' + re.escape(znacka),

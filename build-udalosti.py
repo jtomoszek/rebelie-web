@@ -7,7 +7,7 @@ podle souboru data/udalosti.json.
 Použití (ze složky web/):
     python3 build-udalosti.py
 
-Skript je opakovaně spustitelný — dřívější vygenerovaný obsah přepíše.
+Skript je opakovaně spustitelný – dřívější vygenerovaný obsah přepíše.
 
 Chcete-li u akce doplnit umístění („1. místo"), typ nebo krátký popis,
 upravte příslušnou položku v data/udalosti.json a spusťte skript znovu.
@@ -48,11 +48,11 @@ def dlazdice(u, odsazeni="      "):
         '%s<article class="event" data-reveal>' % o,
         '%s  <button class="event__cover" type="button" data-udalost="%s"'
         % (o, e(u["slug"])),
-        '%s          aria-label="Otevřít galerii: %s — %s">'
+        '%s          aria-label="Otevřít galerii: %s – %s">'
         % (o, e(u["nazev"]), fotek),
         '%s    <img src="img/udalosti/%s/thumb/%s" alt="%s" width="%d" height="%d" loading="lazy">'
         % (o, e(u["slug"]), e(obalka["soubor"]),
-           e(u["nazev"] + " — fotografie z akce"),
+           e(u["nazev"] + " – fotografie z akce"),
            obalka["sirka"], obalka["vyska"]),
         '%s    <span class="event__count">%s</span>' % (o, fotek),
         '%s  </button>' % o,
@@ -72,7 +72,7 @@ def dlazdice(u, odsazeni="      "):
 
 
 def data_pro_js(udalosti):
-    """Malý JSON pro lightbox — jen názvy a soubory, ať stránka neztloustne."""
+    """Malý JSON pro lightbox – jen názvy a soubory, ať stránka neztloustne."""
     mapa = {u["slug"]: {"nazev": u["nazev"],
                         "fotky": [f["soubor"] for f in u["fotky"]]}
             for u in udalosti if u["fotky"]}
@@ -110,7 +110,7 @@ def nahrad(cesta, znacka, obsah):
 
 def main():
     if not os.path.exists(DATA):
-        print("Nenašel jsem %s — spusťte nejdřív pripravit-udalosti.py" % DATA)
+        print("Nenašel jsem %s – spusťte nejdřív pripravit-udalosti.py" % DATA)
         return 1
 
     with open(DATA, encoding="utf-8") as f:

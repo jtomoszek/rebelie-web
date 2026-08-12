@@ -1,4 +1,4 @@
-/* REBELIE — navigace, nadpisy na šířku, lightbox, odhalování při scrollu */
+/* REBELIE – navigace, nadpisy na šířku, lightbox, odhalování při scrollu */
 (function () {
   'use strict';
 
@@ -26,7 +26,7 @@
   /* --- Nadpisy roztažené přesně na šířku sloupce ------------------------ */
   /* CSS clamp() neví, jak je text široký, takže „rebelie" a „co porota
      nepřehlédla" by při stejném nastavení vyšly úplně jinak. Tohle dopočítá
-     velikost tak, aby nejdelší řádek přesně vyplnil rodičovský sloupec —
+     velikost tak, aby nejdelší řádek přesně vyplnil rodičovský sloupec –
      na mobilu i na ultraširokém monitoru. Bez JS platí clamp() z CSS. */
   var MIN_PX = 28;    // pod tím už by nadpis nepůsobil jako nadpis
   var MAX_PX = 460;   // strop pro velmi široké monitory
@@ -57,7 +57,7 @@
     }
     // Nulová šířka textu znamená, že stránka ještě není vykreslená
     // (skryté okno, náhledový panel). Vrátit CSS zálohu a nechat
-    // pozdější resize/RO, ať to přeměří — nesmí se tu nic „zamknout".
+    // pozdější resize/RO, ať to přeměří – nesmí se tu nic „zamknout".
     if (!widest) { el.style.fontSize = ''; return; }
 
     var size = REF * avail / widest;
@@ -69,13 +69,13 @@
   if (fitTargets.length) {
     fitAll();
 
-    // Písma z Google Fonts dorazí až po prvním vykreslení — přeměřit,
+    // Písma z Google Fonts dorazí až po prvním vykreslení – přeměřit,
     // jinak by velikost seděla na náhradní písmo.
     if (document.fonts && document.fonts.ready) {
       document.fonts.ready.then(fitAll);
     }
 
-    // ResizeObserver chytí i změny, které resize okna nehlásí — přepnutí
+    // ResizeObserver chytí i změny, které resize okna nehlásí – přepnutí
     // mřížky hero sekce, otočení telefonu, zobrazení posuvníku.
     if (window.ResizeObserver) {
       var ro = new ResizeObserver(function () { fitAll(); });
@@ -84,7 +84,7 @@
       });
     }
 
-    // resize okna navíc vždy — pojistka pro případ, kdy RO proběhl
+    // resize okna navíc vždy – pojistka pro případ, kdy RO proběhl
     // ve chvíli, kdy okno ještě nemělo rozměry (skrytá karta, náhled).
     var fitTimer;
     window.addEventListener('resize', function () {
@@ -167,7 +167,7 @@
     var polozka = seznam[index];
     lbImg.src = polozka.full;
     lbImg.alt = polozka.alt || '';
-    lbCounter.textContent = (lbTitle ? lbTitle + ' — ' : '') +
+    lbCounter.textContent = (lbTitle ? lbTitle + ' – ' : '') +
       (index + 1) + ' / ' + seznam.length;
 
     // předstih: načíst sousední fotky, aby listování neproblikávalo
@@ -211,7 +211,7 @@
     });
   });
 
-  // obálky akcí — fotky se berou z dat
+  // obálky akcí – fotky se berou z dat
   eventCovers.forEach(function (el) {
     el.addEventListener('click', function (e) {
       e.preventDefault();
@@ -221,7 +221,7 @@
       open(u.fotky.map(function (soubor, i) {
         return {
           full: 'img/udalosti/' + slug + '/' + soubor,
-          alt: u.nazev + ' — fotografie ' + (i + 1)
+          alt: u.nazev + ' – fotografie ' + (i + 1)
         };
       }), 0, u.nazev);
     });

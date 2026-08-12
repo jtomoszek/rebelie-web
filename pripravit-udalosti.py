@@ -15,7 +15,7 @@ Až přibude nová akce:
     2. Fotky pojmenujte „Název akce ROK 1.jpg", „… 2.jpg" atd.
     3. Spusťte tento skript a pak build-udalosti.py
 
-Rok se bere z názvu složky. Co v názvu není, skript si nevymýšlí —
+Rok se bere z názvu složky. Co v názvu není, skript si nevymýšlí –
 typ akce ani místo konání se doplňují ručně v udalosti.json.
 
 Používá jen `sips`, který je součástí macOS. Videa (.mp4) se přeskakují.
@@ -38,7 +38,7 @@ NAHLED_MAX = 600   # delší strana náhledu (px)
 PRIPONY = (".jpg", ".jpeg", ".png", ".heic")
 
 # Typ akce se odvozuje jen tam, kde je jednoznačný z názvu složky.
-# Zbytek zůstane prázdný — doplní se ručně, nic se nedomýšlí.
+# Zbytek zůstane prázdný – doplní se ručně, nic se nedomýšlí.
 TYPY = [
     (r"mistrovstv[íi]",       "Soutěž"),
     (r"v[ýy]stava|zámeček",   "Výstava"),
@@ -87,7 +87,7 @@ def rozmery(cesta):
 
 
 def poznatky_z_nazvu(nazev):
-    """Rok, typ a místo — jen to, co je opravdu v názvu složky."""
+    """Rok, typ a místo – jen to, co je opravdu v názvu složky."""
     # macOS ukládá názvy souborů v rozloženém tvaru (NFD): „ý" je „y"
     # plus samostatný háček. Bez převodu na NFC by regexy s diakritikou
     # nikdy nesedly.
@@ -176,7 +176,7 @@ def zpracuj_slozku(cesta_slozky, nazev, jen_data=False):
         "rok": rok,
         "typ": typ,
         "misto": misto,
-        "umisteni": "",          # doplní Pavla — nic si nevymýšlíme
+        "umisteni": "",          # doplní Pavla – nic si nevymýšlíme
         "popis": "",             # volitelný krátký text k akci
         "slozka": unicodedata.normalize("NFC", nazev),
         "fotky": fotky,

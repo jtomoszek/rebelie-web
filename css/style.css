@@ -1,5 +1,5 @@
 /* ==========================================================================
-   REBELIE — Pavla Hanousková
+   REBELIE – Pavla Hanousková
    Design systém inspirovaný šablonou Anderdark:
    tmavé pozadí, obří grotesk nadpisy, monospace popisky, tenké linky.
    ========================================================================== */
@@ -14,7 +14,7 @@
   --fg-dim:      #6e6a64;
   --line:        rgba(252, 248, 243, 0.14);
   --line-strong: rgba(252, 248, 243, 0.28);
-  /* Jediná růžová na celém webu — odstín z logotypu Rebelie.
+  /* Jediná růžová na celém webu – odstín z logotypu Rebelie.
      Nadpisy, popisky, odkazy, tlačítka i čísla. Změna zde se propíše všude. */
   --pink:        #ff00f5;
   --pink-dim:    #c400bc;   /* ztlumená varianta pro jemné linky a pozadí */
@@ -49,7 +49,7 @@ body {
   overflow-x: hidden;
 }
 
-/* height: auto je tu nutné — atributy width/height v HTML (kvůli rezervaci
+/* height: auto je tu nutné – atributy width/height v HTML (kvůli rezervaci
    místa při načítání) by jinak přebily aspect-ratio a obrázky by se
    vykreslily v plné pixelové výšce. */
 img { max-width: 100%; height: auto; display: block; }
@@ -343,7 +343,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hero__portrait:hover { filter: grayscale(0); }
 
 /* Na úzkých displejích je portrét přes celou šířku v poměru 3:4 příliš
-   dominantní — zkrátí se, aby pod ním bylo vidět i na další obsah. */
+   dominantní – zkrátí se, aby pod ním bylo vidět i na další obsah. */
 @media (max-width: 899px) {
   .hero__portrait { aspect-ratio: 4 / 3; max-height: 46vh; }
 }
@@ -665,7 +665,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   letter-spacing: -0.025em;
   line-height: 1.15;
   margin: 0;
-  /* Názvy akcí jsou různě dlouhé — ať se lámou, ne přetékají. */
+  /* Názvy akcí jsou různě dlouhé – ať se lámou, ne přetékají. */
   overflow-wrap: anywhere;
 }
 .event__meta { font-size: 0.8125rem; color: var(--fg-muted); margin: 0; }
