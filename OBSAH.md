@@ -84,8 +84,11 @@ dodá ceníky, doplní se.
 Stejně tak **doby realizace** (2–6 hodin u bodypaintingu, 7–21 dní
 u oblečení, 3–6 týdnů u obrazu) jsou odhadem.
 
-**Texty na stránce bodypaintingu jsou od Pavly** (srpen 2026): úvod,
-čtyři služby i sekce „Proč Rebelie". Zbytek webu na její texty ještě čeká.
+**Texty od Pavly** (srpen 2026): stránka bodypaintingu (úvod, čtyři služby,
+„Proč Rebelie") a stránka „O mně" (úvod, kontrasty, jak to začalo). Na
+stránce oblečení je od ní odstavec o originálech. POZOR: v posledním textu
+psala „Rebelia Art", dřív „REBELIE ART" — na webu je jednotně „Rebelie Art";
+kdyby to mělo být jinak, dej vědět.
 
 ---
 
@@ -95,8 +98,8 @@ Objevují se v číslech na homepage i na stránce „O mně".
 
 | Údaj | Teď na webu | 
 |---|---|
-| Roky praxe | 12 |
-| Počet realizací | 400+ |
+| Roky praxe | 12 (nepotvrzeno Pavlou) |
+| Počet realizací | 400+ (nepotvrzeno Pavlou) |
 | Počet výstav a soutěží | 18 (skutečný, počítá se automaticky) |
 | Rok první soutěže | 2014 |
 | Působiště | Ostrava, celá ČR i zahraničí |
@@ -110,9 +113,8 @@ za Pavlu, ne Pavlou. Pokud si je bude chtít přepsat vlastními slovy, jde
 hlavně o tyhle:
 
 - **Úvodní odstavec na homepage** (~40 slov) — „Kůže, textil, plátno…"
-- **Životopisná část na `o-mne.html`** (2 × ~70 slov) — „Tři povrchy,
-  jeden rukopis" a „Jak jsem se k tomu dostala"
-- **Úvod ke každé kategorii** (~110 slov na stránku)
+- **Úvod ke stránkám oblečení a obrazů** (~110 slov na stránku); stránka
+  bodypaintingu a „O mně" už jsou z textů od Pavly
 - **Popisy jednotlivých služeb** (~30 slov každý)
 - **Časté dotazy na `kontakt.html`** (5 otázek) — hlavně ty o bezpečnosti
   barev a praní; tam je potřeba, aby odpovídaly skutečnosti
