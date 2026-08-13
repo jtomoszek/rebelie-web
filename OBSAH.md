@@ -60,17 +60,19 @@ zájem, dají se doplnit do galerií akcí.
 
 ---
 
-## 3. Ceny — na všech třech stránkách kategorií
+## 3. Ceny — na stránkách kategorií
 
-Ceny jsou **odhad, ne skutečnost**. Je potřeba je projít a opravit,
-nebo mi říct, ať je vyhodím úplně (řada umělců ceny na webu nemá).
+**Bodypainting**: služby jsou nově podle textů od Pavly (brand bodypainting,
+bodypainting experience, eventy, facepainting) a místo vymyšlených cen mají
+neutrální popisky („na míru vaší značce", „dle počtu osob"…). Pokud Pavla
+dodá ceníky, doplní se.
+
+**Obrazy**: Pavla píše, že ceny obrazů pošle. Až dorazí, nahradí se odhady níže.
+
+**Oblečení**: ceny jsou stále odhad, ne skutečnost:
 
 | Kde | Položka | Teď uvedeno |
 |---|---|---|
-| bodypainting | festivaly a eventy | od 12 000 Kč / den |
-| bodypainting | focení a videoklipy | od 6 500 Kč |
-| bodypainting | firemní akce a veletrhy | na míru |
-| bodypainting | svatby a oslavy | od 4 500 Kč |
 | oblečení | džínová bunda / křivák | od 3 500 Kč |
 | oblečení | sako a kabát | od 4 500 Kč |
 | oblečení | trika, mikiny, šaty | od 1 800 Kč |
@@ -81,6 +83,9 @@ nebo mi říct, ať je vyhodím úplně (řada umělců ceny na webu nemá).
 
 Stejně tak **doby realizace** (2–6 hodin u bodypaintingu, 7–21 dní
 u oblečení, 3–6 týdnů u obrazu) jsou odhadem.
+
+**Texty na stránce bodypaintingu jsou od Pavly** (srpen 2026): úvod,
+čtyři služby i sekce „Proč Rebelie". Zbytek webu na její texty ještě čeká.
 
 ---
 
