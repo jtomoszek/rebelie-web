@@ -14,14 +14,18 @@ kolik textu se tam vejde a co tam teď stojí za výplň.
 Bez těchto údajů web nemůže jít ven. Vyskytují se v patičce **všech stránek**
 a na `kontakt.html`.
 
-| Údaj | Teď na webu (vymyšlené) |
+| Údaj | Stav |
 |---|---|
-| E-mail | `ahoj@rebelie.art` |
-| Telefon | `+420 000 000 000` |
-| Odkaz na Instagram | prázdný odkaz |
-| Odkaz na Facebook | prázdný odkaz |
+| Telefon | ✅ skutečný: +420 605 919 527 |
+| Instagram | ✅ instagram.com/rebelie.art |
+| Facebook | ✅ facebook.com/PaluArt.cz |
+| E-mail | ❌ stále vymyšlený: `ahoj@rebelie.art` |
 | Město / ateliér | „Ostrava" |
 | IČO, případně sídlo pro fakturaci | není nikde |
+
+E-mail je teď jediný vymyšlený kontakt. Je i v atributu `action`
+poptávkového formuláře na `kontakt.html`, takže bez opravy formulář
+posílá poptávky do prázdna.
 
 > Až budou k dispozici, stačí je najít a nahradit ve všech `.html` souborech —
 > jsou zapsané pokaždé stejně.
@@ -176,7 +180,7 @@ Vyhledáním následujícího si je snadno projdete:
 | Hledat | Co to je |
 |---|---|
 | `ahoj@rebelie.art` | e-mail (všechny stránky) |
-| `+420 000 000 000` | telefon (všechny stránky) |
+
 | `instagram.com/` | odkazy na sociální sítě |
 | `data/udalosti.json` | výstavy a soutěže (typ, místo, popis) |
 | `class="svc__price"` | ceny |
