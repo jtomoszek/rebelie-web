@@ -19,16 +19,15 @@ a na `kontakt.html`.
 | Telefon | ✅ skutečný: +420 605 919 527 |
 | Instagram | ✅ instagram.com/rebelie.art |
 | Facebook | ✅ facebook.com/PaluArt.cz |
-| E-mail | ❌ stále vymyšlený: `ahoj@rebelie.art` |
+| E-mail | ⏳ `ahoj@rebelie.art` — cílová adresa, doména rebelie.art se teprve zřizuje |
 | Město / ateliér | „Ostrava" |
 | IČO, případně sídlo pro fakturaci | není nikde |
 
-E-mail je teď jediný vymyšlený kontakt. Je i v atributu `action`
-poptávkového formuláře na `kontakt.html`, takže bez opravy formulář
-posílá poptávky do prázdna.
-
-> Až budou k dispozici, stačí je najít a nahradit ve všech `.html` souborech —
-> jsou zapsané pokaždé stejně.
+**E-mail neměnit** — `ahoj@rebelie.art` je záměr, čeká se na doménu.
+Dokud schránka neběží, poptávkový formulář ale posílá do prázdna
+(adresa je v atributu `action` na `kontakt.html`). Před ostrým spuštěním
+proto buď musí schránka existovat, nebo se formulář napojí na Formspree /
+Web3Forms (návod v README.md).
 
 ---
 
@@ -179,7 +178,7 @@ Vyhledáním následujícího si je snadno projdete:
 
 | Hledat | Co to je |
 |---|---|
-| `ahoj@rebelie.art` | e-mail (všechny stránky) |
+| `ahoj@rebelie.art` | e-mail — NEMĚNIT, čeká na zřízení domény |
 
 | `instagram.com/` | odkazy na sociální sítě |
 | `data/udalosti.json` | výstavy a soutěže (typ, místo, popis) |
