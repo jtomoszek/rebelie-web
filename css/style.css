@@ -343,9 +343,15 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .hero__portrait:hover { filter: grayscale(0); }
 
 /* Na úzkých displejích je portrét přes celou šířku v poměru 3:4 příliš
-   dominantní – zkrátí se, aby pod ním bylo vidět i na další obsah. */
+   dominantní – zkrátí se, aby pod ním bylo vidět i na další obsah.
+   Ořez se kotví k horní pětině: na portrétních fotkách je tam obličej,
+   střed by ho na širokém výřezu uřízl. */
 @media (max-width: 899px) {
-  .hero__portrait { aspect-ratio: 4 / 3; max-height: 46vh; }
+  .hero__portrait {
+    aspect-ratio: 4 / 3;
+    max-height: 46vh;
+    object-position: 50% 18%;
+  }
 }
 
 .hero__meta {
