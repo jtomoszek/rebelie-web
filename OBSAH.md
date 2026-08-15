@@ -126,22 +126,14 @@ hlavně o tyhle:
 
 ## 6. Fotky
 
-### Malba na oblečení — CHYBÍ NEJVÍC
+### Stav galerií
 
-V podkladech byly použitelné jen **4 fotky** malovaného oblečení, a dvě z nich
-jsou tatáž džínová bunda ze stejného úhlu. Galerie na `obleceni.html` je proto
-výrazně slabší než ostatní dvě — a přitom jde o jednu ze tří hlavních služeb.
+- **Bodypainting** — 54 fotek ✅
+- **Malba na oblečení** — 64 fotek (doplněno v srpnu 2026) ✅
+- **Obrazy** — 21 fotek ✅
 
-**Prosím o 10–15 dalších fotek**, ideálně:
-- hotový kus na figuríně nebo na člověku
-- jednobarevné nebo klidné pozadí
-- zepředu i zezadu
-- k tomu pár detailů malby zblízka
-
-### Ostatní kategorie
-
-- **Bodypainting** — 55 fotek, bohatě stačí ✅
-- **Obrazy** — 22 fotek ✅
+Dvě fotky oblečení dorazily duplicitně (textil 24 = textil 1,
+textil 27 = textil 2); duplikáty jsou v „Fofo Rebelie/Vyřazeno".
 
 ### Doporučené doladění
 
@@ -184,4 +176,4 @@ Vyhledáním následujícího si je snadno projdete:
 | `data/udalosti.json` | výstavy a soutěže (typ, místo, popis) |
 | `class="svc__price"` | ceny |
 | `class="stat__num"` | čísla (12 let, 18 akcí, 400+) |
-| `class="todo"` | dočasná poznámka na obleceni.html — **před spuštěním smazat** |
+| — | dočasné poznámky ve webu už nejsou žádné |
