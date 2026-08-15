@@ -797,6 +797,15 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   max-width: 22ch;
 }
 
+/* --- Napsali o mně (citace z tisku) ------------------------------------- */
+.press {
+  margin: 0;
+  padding-left: clamp(1.25rem, 3vw, 2.5rem);
+  border-left: 3px solid var(--pink);
+}
+.press__quote { color: var(--pink); }
+.press__source { margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+
 /* --- CTA blok ----------------------------------------------------------- */
 .cta {
   border-top: 1px solid var(--line);
