@@ -806,6 +806,15 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .press__quote { color: var(--pink); }
 .press__source { margin-top: clamp(1.5rem, 3vw, 2.5rem); }
 
+/* Logo deníku: decentně, jen jako podpis zdroje. Bílá varianta loga se
+   na tmavém pozadí lehce ztlumí, aby nepřebíjela citaci. */
+.press__logo {
+  height: clamp(20px, 2.4vw, 26px);
+  width: auto;
+  opacity: 0.8;
+  margin-bottom: 1.1rem;
+}
+
 /* --- CTA blok ----------------------------------------------------------- */
 .cta {
   border-top: 1px solid var(--line);
