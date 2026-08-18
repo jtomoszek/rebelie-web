@@ -14,11 +14,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=9">
+<link rel="stylesheet" href="../css/style.css?v=10">
 <style>
   /* Styly jen pro logo manuál. Vše ostatní dědí z hlavního style.css. */
 
   .brand-hero { padding-top: clamp(2.5rem, 6vw, 5rem); }
+  .brand-hero__logo { margin: 0; line-height: 0; }
+  .brand-hero__logo img { width: 100%; max-width: 900px; height: auto; }
 
   /* mřížka ukázek */
   .brand-grid {
@@ -88,9 +90,15 @@
   }
   .zone__frame {
     position: relative;
-    padding: 22%;                        /* = výška symbolu „x" na každé straně */
+    /* Rám roste z loga ven: logo má pevnou šířku, ochranná zóna „x"
+       (≈ výška symbolu ≈ 27 % šířky logotypu) je padding kolem něj.
+       content-box, aby padding nesežral samotné logo. */
+    --logo-w: min(320px, 55vw);
+    --x: calc(var(--logo-w) * 0.27);
+    box-sizing: content-box;
+    width: var(--logo-w);
+    padding: var(--x);
     border: 1px dashed var(--pink);
-    max-width: 560px; width: 100%;
   }
   .zone__frame img { width: 100%; height: auto; display: block; }
   .zone__frame::before,
@@ -203,6 +211,7 @@
   <a href="#typografie">typografie</a>
   <a href="#zakazane">zakázané použití</a>
   <a href="#stahnout">stáhnout loga</a>
+  <a href="#autor">autorská práva</a>
   <a href="../index.html">← zpět na web</a>
 </div>
 
@@ -213,7 +222,9 @@
     <div class="hero__top">
       <div class="hero__title">
         <p class="eyebrow" style="margin-bottom: 1rem;">Logo manuál &middot; verze 1.0 &middot; 2026</p>
-        <h1 class="display display--xxl display--brand" data-fit>rebelie</h1>
+        <h1 class="brand-hero__logo">
+          <img src="../assets/rebelie-logo-pink.svg" alt="Rebelie" width="2123" height="858">
+        </h1>
       </div>
       <div class="brand-tile__stage brand-tile__stage--sym bg-uhel" style="border:1px solid var(--line); aspect-ratio: 3/4;">
         <img src="../assets/rebelie-symbol-circle.svg" alt="Symbol Rebelie v růžovém kruhu" style="width:60%">
@@ -332,15 +343,7 @@
         <div class="swatch__body">
           <span class="swatch__name">Rebelie Pink</span>
           <p class="swatch__hex">#FF00F5</p>
-          <p class="swatch__meta">RGB 255 0 245 &middot; CMYK 25 90 0 0<br>Logotyp, odkazy, akcenty. Nikdy jako velká plocha textu.</p>
-        </div>
-      </div>
-      <div class="swatch">
-        <div class="swatch__chip" style="background:#ff3dd1"></div>
-        <div class="swatch__body">
-          <span class="swatch__name">Symbol Pink</span>
-          <p class="swatch__hex">#FF3DD1</p>
-          <p class="swatch__meta">RGB 255 61 209<br>Výplň kruhu u symbolu. Používá se pouze zde.</p>
+          <p class="swatch__meta">RGB 255 0 245 &middot; CMYK 25 90 0 0<br>Logotyp, symbol v kruhu, odkazy, akcenty. Jediná růžová značky. Nikdy jako velká plocha textu.</p>
         </div>
       </div>
       <div class="swatch">
@@ -496,6 +499,41 @@
     </p>
   </section>
 
+  <!-- ================= 08 AUTORSKÁ PRÁVA ================= -->
+  <section class="wrap section--tight" id="autor">
+    <p class="eyebrow" data-reveal>08 &middot; Autorská práva</p>
+    <h2 class="display display--l" data-reveal style="margin-bottom: clamp(2rem, 4vw, 3rem);">
+      komu logo patří
+    </h2>
+    <div class="grid-2" data-reveal>
+      <div class="body-text">
+        <p>
+          Autorem logotypu a symbolu Rebelie je <strong>Jakub Tomoszek</strong>,
+          který k nim vykonává autorská práva. Značku smí používat Pavla Hanousková
+          pro prezentaci své tvorby a její partneři v rozsahu, který tento manuál
+          popisuje.
+        </p>
+        <p>
+          Jakákoli úprava loga, odvozené verze, nová barevná provedení, animace
+          nebo použití mimo popsaná pravidla podléhají souhlasu autora. Totéž
+          platí pro předání zdrojových souborů třetí straně.
+        </p>
+      </div>
+      <div class="body-text">
+        <p>
+          Potřebujete s logem cokoli, co manuál neřeší, nebo si nejste jistí,
+          jestli je zamýšlené použití v pořádku? Napište autorovi, odpověď
+          je zpravidla rychlá.
+        </p>
+        <p style="margin-top: 1.5rem;">
+          <a class="btn btn--pink" href="mailto:jakub@tomoszek.com">
+            jakub@tomoszek.com <span class="btn__arrow" aria-hidden="true">↗</span>
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
   <section class="wrap section">
     <p class="statement" data-reveal>
       Značka drží pohromadě jen tehdy, když ji všichni používáme stejně.
@@ -529,18 +567,19 @@
         <ul>
           <li><a href="mailto:ahoj@rebelie.art">ahoj@rebelie.art</a></li>
           <li><a href="#stahnout">Soubory ke stažení</a></li>
+          <li><a href="#autor">Autor loga: Jakub Tomoszek</a></li>
           <li><a href="../index.html">Zpět na web</a></li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom">
       <span>&copy; <span id="year">2026</span> Rebelie – Pavla Hanousková</span>
-      <span>Logo manuál v1.0 &middot; Loga podléhají autorskému právu.</span>
+      <span>Logo manuál v1.0 &middot; Autor loga Jakub Tomoszek, <a href="mailto:jakub@tomoszek.com" class="link-underline">jakub@tomoszek.com</a></span>
     </div>
   </div>
 </footer>
 
-<script src="../js/main.js?v=9"></script>
+<script src="../js/main.js?v=10"></script>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>

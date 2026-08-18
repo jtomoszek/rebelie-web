@@ -177,3 +177,11 @@ Vyhledáním následujícího si je snadno projdete:
 | `class="svc__price"` | ceny |
 | `class="stat__num"` | čísla (12 let, 18 akcí, 400+) |
 | — | dočasné poznámky ve webu už nejsou žádné |
+
+## Logo manuál (`/brand`)
+
+Podstránka s pravidly značky a logy ke stažení, odkaz jen v patičce.
+Autorem loga je Jakub Tomoszek (jakub@tomoszek.com), uvedeno v sekci 08.
+Symbol v kruhu byl sjednocen na #FF00F5 (původní SVG mělo #FF3DD1);
+originál v „Logo Rebelie/" zůstal nedotčený, přebarvená je kopie
+v `assets/` a `brand/soubory/`.
