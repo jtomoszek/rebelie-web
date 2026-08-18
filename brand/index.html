@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- NÁHLED: zabraňuje indexaci ve vyhledávačích. Až budou na webu skutečné texty
+     a ocenění, tenhle řádek smažte (a spolu s ním i soubor robots.txt). -->
+<meta name="robots" content="noindex, nofollow">
+<title>Logo manuál | REBELIE, Pavla Hanousková</title>
+<meta name="description" content="Pravidla pro používání značky Rebelie: verze loga, ochranná zóna, barvy, typografie, povolené a zakázané použití. Loga ke stažení v SVG a PNG.">
+<meta property="og:title" content="Logo manuál | REBELIE">
+<meta property="og:description" content="Pravidla pro používání značky Rebelie a loga ke stažení.">
+<link rel="icon" href="../assets/rebelie-symbol-circle.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css?v=9">
+<style>
+  /* Styly jen pro logo manuál. Vše ostatní dědí z hlavního style.css. */
+
+  .brand-hero { padding-top: clamp(2.5rem, 6vw, 5rem); }
+
+  /* mřížka ukázek */
+  .brand-grid {
+    display: grid;
+    gap: var(--gap);
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  }
+
+  .brand-tile {
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+  }
+  .brand-tile__stage {
+    aspect-ratio: 4 / 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12%;
+    position: relative;
+    overflow: hidden;   /* zkažená loga v ukázkách nesmí přetéct z dlaždice */
+  }
+  .brand-tile__stage img { width: 100%; height: auto; max-height: 100%; object-fit: contain; }
+  .brand-tile__stage--sym img { width: 48%; }
+  .brand-tile__body { padding: 1rem 1.1rem 1.15rem; border-top: 1px solid var(--line); }
+  .brand-tile__num { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pink); }
+  .brand-tile__name {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 1.15rem; letter-spacing: -0.02em; line-height: 1.1;
+    margin: 0.35rem 0 0.5rem; text-transform: lowercase;
+  }
+  .brand-tile__desc { font-size: 0.8125rem; color: var(--fg-muted); margin: 0; line-height: 1.65; }
+
+  /* pozadí ukázek */
+  .bg-uhel   { background: var(--bg); }
+  .bg-platno { background: var(--fg); }
+  .bg-pink   { background: var(--pink); }
+  .bg-photo  {
+    background:
+      radial-gradient(ellipse at 20% 30%, #ff9a3c 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 20%, #6d3cff 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 90%, #00c2a8 0%, transparent 55%),
+      #2a1e3a;
+  }
+
+  /* razítko ano / ne */
+  .brand-verdict {
+    position: absolute; top: 0.6rem; left: 0.6rem;
+    font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.25rem 0.5rem; color: #000; background: var(--pink);
+  }
+  .brand-verdict--no { background: #ff3b3b; color: #fff; }
+
+  /* záměrně zkažená loga v sekci zakázaného použití */
+  .abuse-stretch img { transform: scaleX(1.3) scaleY(0.65); }
+  .abuse-rotate  img { transform: rotate(-14deg); }
+  .abuse-recolor img { filter: hue-rotate(150deg) saturate(1.4); }
+  .abuse-shadow  img { filter: drop-shadow(6px 8px 6px rgba(0,0,0,0.75)) drop-shadow(0 0 14px rgba(255,0,245,0.9)); }
+
+  /* ochranná zóna: logo + rám z přerušované linky + kóta */
+  .zone {
+    border: 1px solid var(--line);
+    background: var(--bg-card);
+    padding: clamp(2rem, 6vw, 5rem);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .zone__frame {
+    position: relative;
+    padding: 22%;                        /* = výška symbolu „x" na každé straně */
+    border: 1px dashed var(--pink);
+    max-width: 560px; width: 100%;
+  }
+  .zone__frame img { width: 100%; height: auto; display: block; }
+  .zone__frame::before,
+  .zone__frame::after {
+    content: "x";
+    position: absolute;
+    font-family: var(--font-mono); font-size: 0.75rem; color: var(--pink);
+  }
+  .zone__frame::before { top: 6%; left: 50%; transform: translateX(-50%); }
+  .zone__frame::after  { left: 4%; top: 50%; transform: translateY(-50%); }
+
+  /* měřítka */
+  .measures {
+    display: grid; gap: var(--gap);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    margin-top: var(--gap);
+  }
+  .measure { border-top: 1px solid var(--line-strong); padding-top: 1.25rem; }
+  .measure__num {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.04em; line-height: 1;
+    color: var(--pink); margin: 0 0 0.6rem;
+  }
+  .measure p { font-size: 0.8125rem; color: var(--fg-muted); margin: 0; line-height: 1.7; }
+
+  /* barvy */
+  .swatches {
+    display: grid; gap: var(--gap);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  }
+  .swatch { border: 1px solid var(--line); }
+  .swatch__chip { aspect-ratio: 3 / 2; }
+  .swatch__body { padding: 1rem 1.1rem 1.15rem; }
+  .swatch__name { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--fg-dim); }
+  .swatch__hex {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 1.4rem; letter-spacing: -0.02em; margin: 0.35rem 0 0.5rem;
+  }
+  .swatch__meta { font-size: 0.75rem; color: var(--fg-muted); margin: 0; line-height: 1.7; }
+
+  /* typografie */
+  .type-specimen {
+    display: grid; gap: var(--gap);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 900px) { .type-specimen { grid-template-columns: 1fr 1fr; } }
+  .type-card { border: 1px solid var(--line); padding: clamp(1.5rem, 3vw, 2.5rem); }
+  .type-card__aa { font-size: clamp(4rem, 9vw, 7rem); line-height: 1; margin: 0 0 1rem; color: var(--pink); }
+  .type-card--display .type-card__aa { font-family: var(--font-display); font-weight: 900; letter-spacing: -0.05em; }
+  .type-card--mono    .type-card__aa { font-family: var(--font-mono); font-weight: 500; }
+  .type-card h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+  .type-card p  { font-size: 0.8125rem; color: var(--fg-muted); margin: 0 0 1rem; line-height: 1.7; }
+  .type-card__alphabet {
+    word-break: break-all; color: var(--fg); font-size: 0.9rem; line-height: 1.5;
+    padding-top: 1rem; border-top: 1px solid var(--line);
+  }
+  .type-card--display .type-card__alphabet { font-family: var(--font-display); font-weight: 700; letter-spacing: -0.02em; font-size: 1.1rem; }
+  .type-card--mono    .type-card__alphabet { font-family: var(--font-mono); }
+
+  /* ke stažení */
+  .dl { border-top: 1px solid var(--line); }
+  .dl__row {
+    display: grid; gap: 0.75rem 2rem;
+    grid-template-columns: 1fr;
+    padding: clamp(1.25rem, 2.5vw, 1.75rem) 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  @media (min-width: 800px) { .dl__row { grid-template-columns: 5.5rem minmax(0, 1fr) auto; } }
+  .dl__preview {
+    width: 5.5rem; height: 3.5rem;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0.5rem; border: 1px solid var(--line);
+  }
+  .dl__preview img { max-width: 100%; max-height: 100%; }
+  .dl__name { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; letter-spacing: -0.02em; margin: 0 0 0.2rem; text-transform: lowercase; }
+  .dl__desc { font-size: 0.8125rem; color: var(--fg-muted); margin: 0; }
+  .dl__links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .dl__links .btn { padding: 0.65rem 1rem; font-size: 0.75rem; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Přejít na obsah</a>
+
+<header class="nav">
+  <div class="wrap nav__inner">
+    <a class="nav__logo" href="../index.html" aria-label="Rebelie – domů">
+      <img src="../assets/rebelie-logo-pink.svg" alt="Rebelie">
+    </a>
+    <nav aria-label="Obsah manuálu">
+      <ul class="nav__links">
+        <li><a href="#verze">Verze loga</a></li>
+        <li><a href="#zona">Ochranná zóna</a></li>
+        <li><a href="#barvy">Barvy</a></li>
+        <li><a href="#typografie">Typografie</a></li>
+        <li><a href="#zakazane">Zakázané použití</a></li>
+      </ul>
+    </nav>
+    <a class="nav__cta" href="#stahnout">Stáhnout loga</a>
+    <button class="nav__burger" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#verze">verze loga</a>
+  <a href="#zona">ochranná zóna</a>
+  <a href="#barvy">barvy</a>
+  <a href="#typografie">typografie</a>
+  <a href="#zakazane">zakázané použití</a>
+  <a href="#stahnout">stáhnout loga</a>
+  <a href="../index.html">← zpět na web</a>
+</div>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="wrap hero brand-hero">
+    <div class="hero__top">
+      <div class="hero__title">
+        <p class="eyebrow" style="margin-bottom: 1rem;">Logo manuál &middot; verze 1.0 &middot; 2026</p>
+        <h1 class="display display--xxl display--brand" data-fit>rebelie</h1>
+      </div>
+      <div class="brand-tile__stage brand-tile__stage--sym bg-uhel" style="border:1px solid var(--line); aspect-ratio: 3/4;">
+        <img src="../assets/rebelie-symbol-circle.svg" alt="Symbol Rebelie v růžovém kruhu" style="width:60%">
+      </div>
+    </div>
+
+    <div class="hero__meta">
+      <p>
+        Pravidla pro používání značky<br>
+        Pavla Hanousková &middot; bodypainting, oblečení, obrazy
+      </p>
+      <p>
+        Logotyp, symbol, barvy, typografie<br>
+        a povolené i zakázané použití.
+      </p>
+      <p>
+        Všechny podklady ke stažení<br>
+        <a class="link-underline" href="#stahnout">Přejít na soubory</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="wrap section">
+    <p class="lead" data-reveal>
+      Značka Rebelie stojí na jednom rukopisu, rukou psaném tahu štětce.
+      Manuál hlídá, aby ten tah zůstal čitelný na každém povrchu.
+    </p>
+  </section>
+
+  <!-- ================= 01 VERZE LOGA ================= -->
+  <section class="wrap section--tight" id="verze">
+    <p class="eyebrow" data-reveal>01 &middot; Verze loga</p>
+    <h2 class="display display--l" data-reveal style="margin-bottom: clamp(2rem, 4vw, 3rem);">
+      čtyři podoby<br>jedné značky
+    </h2>
+
+    <div class="brand-grid" data-reveal>
+      <article class="brand-tile">
+        <div class="brand-tile__stage bg-uhel"><img src="../assets/rebelie-logo-pink.svg" alt="Logotyp Rebelie růžový"></div>
+        <div class="brand-tile__body">
+          <span class="brand-tile__num">01 / Základní</span>
+          <h3 class="brand-tile__name">logotyp růžový</h3>
+          <p class="brand-tile__desc">Hlavní verze. Používejte vždy, když to pozadí dovolí: na tmavém i světlém podkladu s dostatečným kontrastem.</p>
+        </div>
+      </article>
+      <article class="brand-tile">
+        <div class="brand-tile__stage bg-photo"><img src="../assets/rebelie-logo-white.svg" alt="Logotyp Rebelie bílý"></div>
+        <div class="brand-tile__body">
+          <span class="brand-tile__num">02 / Inverzní</span>
+          <h3 class="brand-tile__name">logotyp bílý</h3>
+          <p class="brand-tile__desc">Pro fotografie, tmavé plochy a barevná pozadí, kde by růžová ztrácela čitelnost.</p>
+        </div>
+      </article>
+      <article class="brand-tile">
+        <div class="brand-tile__stage bg-platno"><img src="../assets/rebelie-logo-black.svg" alt="Logotyp Rebelie černý"></div>
+        <div class="brand-tile__body">
+          <span class="brand-tile__num">03 / Jednobarevná</span>
+          <h3 class="brand-tile__name">logotyp černý</h3>
+          <p class="brand-tile__desc">Pro tisk bez barev, razítka, faktury a všude, kde je k dispozici jen jedna barva.</p>
+        </div>
+      </article>
+      <article class="brand-tile">
+        <div class="brand-tile__stage brand-tile__stage--sym bg-uhel"><img src="../assets/rebelie-symbol-circle.svg" alt="Symbol Rebelie v růžovém kruhu"></div>
+        <div class="brand-tile__body">
+          <span class="brand-tile__num">04 / Symbol</span>
+          <h3 class="brand-tile__name">značka v kruhu</h3>
+          <p class="brand-tile__desc">Profilové fotky, favicon, štítky a razítka na dílech. Nikdy nenahrazuje logotyp v hlavičce dokumentu.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= 02 OCHRANNÁ ZÓNA ================= -->
+  <section class="wrap section--tight" id="zona">
+    <p class="eyebrow" data-reveal>02 &middot; Ochranná zóna a velikost</p>
+    <h2 class="display display--l" data-reveal style="margin-bottom: clamp(2rem, 4vw, 3rem);">
+      kolem loga<br>nechte dýchat
+    </h2>
+
+    <div class="zone" data-reveal>
+      <div class="zone__frame">
+        <img src="../assets/rebelie-logo-pink.svg" alt="Logotyp s vyznačenou ochrannou zónou">
+      </div>
+    </div>
+    <p class="body-text" style="margin-top: 1.5rem;">
+      Minimální volný prostor kolem loga je ze všech stran roven výšce kruhového
+      symbolu (x). Do této zóny nevstupuje žádný text, obrázek ani hrana formátu.
+    </p>
+
+    <div class="measures" data-reveal>
+      <div class="measure">
+        <p class="measure__num">24 mm</p>
+        <p>Minimální šířka logotypu pro tisk. Pod touto velikostí se ztrácí tenký tah štětce.</p>
+      </div>
+      <div class="measure">
+        <p class="measure__num">90 px</p>
+        <p>Minimální šířka logotypu na obrazovce. V hlavičce webu je logo vysoké 26 px.</p>
+      </div>
+      <div class="measure">
+        <p class="measure__num">16 px</p>
+        <p>Minimální velikost samotného symbolu (favicon). Menší už jen jako plná růžová plocha bez detailu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 03 BARVY ================= -->
+  <section class="wrap section--tight" id="barvy">
+    <p class="eyebrow" data-reveal>03 &middot; Barevnost</p>
+    <h2 class="display display--l" data-reveal style="margin-bottom: clamp(2rem, 4vw, 3rem);">
+      jedna růžová,<br>zbytek ticho
+    </h2>
+
+    <div class="swatches" data-reveal>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#ff00f5"></div>
+        <div class="swatch__body">
+          <span class="swatch__name">Rebelie Pink</span>
+          <p class="swatch__hex">#FF00F5</p>
+          <p class="swatch__meta">RGB 255 0 245 &middot; CMYK 25 90 0 0<br>Logotyp, odkazy, akcenty. Nikdy jako velká plocha textu.</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#ff3dd1"></div>
+        <div class="swatch__body">
+          <span class="swatch__name">Symbol Pink</span>
+          <p class="swatch__hex">#FF3DD1</p>
+          <p class="swatch__meta">RGB 255 61 209<br>Výplň kruhu u symbolu. Používá se pouze zde.</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#161614; border-bottom:1px solid var(--line)"></div>
+        <div class="swatch__body">
+          <span class="swatch__name">Uhel</span>
+          <p class="swatch__hex">#161614</p>
+          <p class="swatch__meta">RGB 22 22 20<br>Základní pozadí značky. Ne čistá černá.</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch__chip" style="background:#fcf8f3"></div>
+        <div class="swatch__body">
+          <span class="swatch__name">Plátno</span>
+          <p class="swatch__hex">#FCF8F3</p>
+          <p class="swatch__meta">RGB 252 248 243<br>Text na tmavém pozadí, světlá varianta tiskovin.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 04 TYPOGRAFIE ================= -->
+  <section class="wrap section--tight" id="typografie">
+    <p class="eyebrow" data-reveal>04 &middot; Typografie</p>
+    <h2 class="display display--l" data-reveal style="margin-bottom: clamp(2rem, 4vw, 3rem);">
+      grotesk a stroj
+    </h2>
+
+    <div class="type-specimen" data-reveal>
+      <div class="type-card type-card--display">
+        <p class="type-card__aa">Aa</p>
+        <h3>Inter Bold / Black</h3>
+        <p>Nadpisy a velká prohlášení. Vždy malými písmeny, prostrkání −5 %, řádkování 0,84–0,95.</p>
+        <p class="type-card__alphabet">abcdefghijklmnopqrstuvwxyzáčďéěíňóřšťúůýž 0123456789</p>
+      </div>
+      <div class="type-card type-card--mono">
+        <p class="type-card__aa">Aa</p>
+        <h3>IBM Plex Mono Regular / Medium</h3>
+        <p>Běžný text, popisky a navigace. Popisky verzálkami s prostrkáním 14 %, velikost 12 px.</p>
+        <p class="type-card__alphabet">ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 05 LOGO NA POZADÍ ================= -->
+  <section class="wrap section--tight" id="pozadi">
+    <p class="eyebrow" data-reveal>05 &middot; Logo na pozadí</p>
+    <h2 class="display display--l" data-reveal style="margin-bottom: clamp(2rem, 4vw, 3rem);">
+      kterou verzi<br>kam položit
+    </h2>
+
+    <div class="brand-grid" data-reveal>
+      <article class="brand-tile">
+        <div class="brand-tile__stage bg-uhel"><span class="brand-verdict">Ano</span><img src="../assets/rebelie-logo-pink.svg" alt="Růžové logo na tmavém pozadí"></div>
+        <div class="brand-tile__body"><p class="brand-tile__desc">Růžová na uhlovém pozadí. Základní kombinace.</p></div>
+      </article>
+      <article class="brand-tile">
+        <div class="brand-tile__stage bg-platno"><span class="brand-verdict">Ano</span><img src="../assets/rebelie-logo-pink.svg" alt="Růžové logo na světlém pozadí"></div>
+        <div class="brand-tile__body"><p class="brand-tile__desc">Růžová na plátnové bílé. Pro tiskoviny a papír.</p></div>
+      </article>
+      <article class="brand-tile">
+        <div class="brand-tile__stage bg-photo"><span class="brand-verdict">Ano</span><img src="../assets/rebelie-logo-white.svg" alt="Bílé logo na barevném pozadí"></div>
+        <div class="brand-tile__body"><p class="brand-tile__desc">Bílá na fotce nebo barevné ploše.</p></div>
+      </article>
+      <article class="brand-tile">
+        <div class="brand-tile__stage bg-pink"><span class="brand-verdict" style="background:#000;color:#fff">Ano</span><img src="../assets/rebelie-logo-black.svg" alt="Černé logo na růžovém pozadí"></div>
+        <div class="brand-tile__body"><p class="brand-tile__desc">Černá na značkové růžové. Jen pro krátké akcenty.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= 06 ZAKÁZANÉ POUŽITÍ ================= -->
+  <section class="wrap section--tight" id="zakazane">
+    <p class="eyebrow" data-reveal>06 &middot; Zakázané použití</p>
+    <h2 class="display display--l" data-reveal style="margin-bottom: clamp(2rem, 4vw, 3rem);">
+      tohle logu<br>nedělejte
+    </h2>
+
+    <div class="brand-grid" data-reveal>
+      <article class="brand-tile">
+        <div class="brand-tile__stage bg-uhel abuse-stretch"><span class="brand-verdict brand-verdict--no">Ne</span><img src="../assets/rebelie-logo-pink.svg" alt="Deformované logo"></div>
+        <div class="brand-tile__body"><p class="brand-tile__desc">Neroztahujte ani nestlačujte. Poměr stran je pevný.</p></div>
+      </article>
+      <article class="brand-tile">
+        <div class="brand-tile__stage bg-uhel abuse-rotate"><span class="brand-verdict brand-verdict--no">Ne</span><img src="../assets/rebelie-logo-pink.svg" alt="Otočené logo"></div>
+        <div class="brand-tile__body"><p class="brand-tile__desc">Neotáčejte. Logo stojí vždy vodorovně.</p></div>
+      </article>
+      <article class="brand-tile">
+        <div class="brand-tile__stage bg-uhel abuse-recolor"><span class="brand-verdict brand-verdict--no">Ne</span><img src="../assets/rebelie-logo-pink.svg" alt="Přebarvené logo"></div>
+        <div class="brand-tile__body"><p class="brand-tile__desc">Nepřebarvujte. Povolené jsou jen růžová, bílá a černá.</p></div>
+      </article>
+      <article class="brand-tile">
+        <div class="brand-tile__stage bg-uhel abuse-shadow"><span class="brand-verdict brand-verdict--no">Ne</span><img src="../assets/rebelie-logo-pink.svg" alt="Logo se stínem"></div>
+        <div class="brand-tile__body"><p class="brand-tile__desc">Žádné stíny, obrysy ani přechody.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ================= 07 KE STAŽENÍ ================= -->
+  <section class="wrap section--tight" id="stahnout">
+    <p class="eyebrow" data-reveal>07 &middot; Ke stažení</p>
+    <h2 class="display display--l" data-reveal style="margin-bottom: clamp(2rem, 4vw, 3rem);">
+      soubory značky
+    </h2>
+
+    <div class="dl" data-reveal>
+      <div class="dl__row">
+        <div class="dl__preview bg-uhel"><img src="../assets/rebelie-logo-pink.svg" alt=""></div>
+        <div><p class="dl__name">logotyp růžový</p><p class="dl__desc">Základní verze pro web i tisk</p></div>
+        <div class="dl__links">
+          <a class="btn" href="soubory/rebelie-logo-pink.svg" download>SVG ↓</a>
+          <a class="btn" href="soubory/rebelie-logo-pink.png" download>PNG ↓</a>
+        </div>
+      </div>
+      <div class="dl__row">
+        <div class="dl__preview bg-photo"><img src="../assets/rebelie-logo-white.svg" alt=""></div>
+        <div><p class="dl__name">logotyp bílý</p><p class="dl__desc">Pro fotografie a tmavá pozadí</p></div>
+        <div class="dl__links">
+          <a class="btn" href="soubory/rebelie-logo-white.svg" download>SVG ↓</a>
+          <a class="btn" href="soubory/rebelie-logo-white.png" download>PNG ↓</a>
+        </div>
+      </div>
+      <div class="dl__row">
+        <div class="dl__preview bg-platno"><img src="../assets/rebelie-logo-black.svg" alt=""></div>
+        <div><p class="dl__name">logotyp černý</p><p class="dl__desc">Jednobarevný tisk a dokumenty</p></div>
+        <div class="dl__links">
+          <a class="btn" href="soubory/rebelie-logo-black.svg" download>SVG ↓</a>
+          <a class="btn" href="soubory/rebelie-logo-black.png" download>PNG ↓</a>
+        </div>
+      </div>
+      <div class="dl__row">
+        <div class="dl__preview bg-uhel"><img src="../assets/rebelie-symbol-circle.svg" alt="" style="height:100%"></div>
+        <div><p class="dl__name">symbol v kruhu</p><p class="dl__desc">Profily, favicon, štítky</p></div>
+        <div class="dl__links">
+          <a class="btn" href="soubory/rebelie-symbol-circle.svg" download>SVG ↓</a>
+          <a class="btn" href="soubory/rebelie-symbol-circle.png" download>PNG ↓</a>
+        </div>
+      </div>
+      <div class="dl__row">
+        <div class="dl__preview bg-platno"><img src="../assets/rebelie-symbol-black.svg" alt="" style="height:100%"></div>
+        <div><p class="dl__name">symbol černý</p><p class="dl__desc">Bez kruhu, pro světlá pozadí</p></div>
+        <div class="dl__links">
+          <a class="btn" href="soubory/rebelie-symbol-black.svg" download>SVG ↓</a>
+          <a class="btn" href="soubory/rebelie-symbol-black.png" download>PNG ↓</a>
+        </div>
+      </div>
+    </div>
+
+    <p class="body-text" style="margin-top: 2rem;">
+      SVG je vektor: dá se zvětšit do libovolné velikosti bez ztráty kvality,
+      používejte ho všude, kde to jde. PNG má průhledné pozadí (2000 px) a hodí se
+      do Wordu, prezentací a na sociální sítě. Pro tiskárnu si vyžádejte PDF nebo EPS.
+    </p>
+  </section>
+
+  <section class="wrap section">
+    <p class="statement" data-reveal>
+      Značka drží pohromadě jen tehdy, když ji všichni používáme stejně.
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <img class="footer__logo" src="../assets/rebelie-logo-white.svg" alt="Rebelie">
+        <p class="body-text" style="max-width: 34ch;">
+          Pavla Hanousková – bodypainting, malba na oblečení a obrazy.
+          Ostrava a celá ČR.
+        </p>
+      </div>
+      <div>
+        <h4>Obsah manuálu</h4>
+        <ul>
+          <li><a href="#verze">Verze loga</a></li>
+          <li><a href="#zona">Ochranná zóna a velikost</a></li>
+          <li><a href="#barvy">Barevnost</a></li>
+          <li><a href="#typografie">Typografie</a></li>
+          <li><a href="#zakazane">Zakázané použití</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:ahoj@rebelie.art">ahoj@rebelie.art</a></li>
+          <li><a href="#stahnout">Soubory ke stažení</a></li>
+          <li><a href="../index.html">Zpět na web</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; <span id="year">2026</span> Rebelie – Pavla Hanousková</span>
+      <span>Logo manuál v1.0 &middot; Loga podléhají autorskému právu.</span>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js?v=9"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

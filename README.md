@@ -21,6 +21,9 @@ web/
 ├── obrazy.html           Věčné plátno — obrazy
 ├── oceneni.html          Ocenění a soutěže
 ├── kontakt.html          Kontakt a poptávkový formulář
+├── brand/                Logo manuál (doména/brand), odkaz jen v patičce
+│   ├── index.html
+│   └── soubory/          Loga ke stažení – SVG + PNG 2000 px s průhledným pozadím
 │
 ├── css/style.css         Veškerý vzhled (barvy a rozestupy nahoře v :root)
 ├── js/main.js            Menu, lightbox, animace, dopočet velikosti nadpisů
