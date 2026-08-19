@@ -34,7 +34,7 @@ Web3Forms (návod v README.md).
 ## 2. Výstavy a soutěže — `oceneni.html`
 
 Stránka je postavená ze složky **„Fofo Rebelie/Výstavy a soutěže"** —
-18 skutečných akcí, 313 fotek, každá akce má vlastní galerii. Tady se nic
+20 skutečných akcí, 357 fotek, každá akce má vlastní galerii. Tady se nic
 nevymýšlelo.
 
 Umístění v soutěžích se na webu **záměrně neuvádějí** (rozhodnuto).
@@ -103,7 +103,7 @@ Objevují se v číslech na homepage i na stránce „O mně".
 |---|---|
 | Roky praxe | 12 (nepotvrzeno Pavlou) |
 | Počet realizací | 400+ (nepotvrzeno Pavlou) |
-| Počet výstav a soutěží | 18 (skutečný, počítá se automaticky) |
+| Počet výstav a soutěží | 20 (skutečný, počítá se automaticky) |
 | Rok první soutěže | 2014 |
 | Působiště | Ostrava, celá ČR i zahraničí |
 
@@ -130,7 +130,7 @@ hlavně o tyhle:
 
 - **Bodypainting** — 54 fotek ✅
 - **Malba na oblečení** — 64 fotek (doplněno v srpnu 2026) ✅
-- **Obrazy** — 21 fotek ✅
+- **Obrazy** — 42 fotek (doplněno v srpnu 2026) ✅
 
 Dvě fotky oblečení dorazily duplicitně (textil 24 = textil 1,
 textil 27 = textil 2); duplikáty jsou v „Fofo Rebelie/Vyřazeno".
@@ -175,7 +175,7 @@ Vyhledáním následujícího si je snadno projdete:
 | `instagram.com/` | odkazy na sociální sítě |
 | `data/udalosti.json` | výstavy a soutěže (typ, místo, popis) |
 | `class="svc__price"` | ceny |
-| `class="stat__num"` | čísla (12 let, 18 akcí, 400+) |
+| `class="stat__num"` | čísla (12 let, 20 akcí, 400+) |
 | — | dočasné poznámky ve webu už nejsou žádné |
 
 ## Logo manuál (`/brand`)
