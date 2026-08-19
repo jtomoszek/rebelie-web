@@ -752,6 +752,34 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 @media (min-width: 900px) {
   .svc { grid-template-columns: 4rem minmax(0, 0.9fr) minmax(0, 1.3fr) auto; align-items: start; }
 }
+/* Malý vizuální náhled u služby: klikací do lightboxu, ať si zákazník
+   hned umí představit, co si objednává. Na mobilu jde nad text. */
+.svc--thumb {
+  grid-template-columns: 1fr;
+}
+@media (min-width: 900px) {
+  .svc--thumb { grid-template-columns: 4rem 7.5rem minmax(0, 0.9fr) minmax(0, 1.3fr) auto; align-items: center; }
+}
+.svc__thumb {
+  display: block;
+  width: 7.5rem;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: var(--bg-card);
+  cursor: zoom-in;
+}
+.svc__thumb img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 30%;
+  transition: transform 0.8s var(--ease);
+}
+.svc__thumb:hover img { transform: scale(1.06); }
+@media (max-width: 899px) {
+  .svc--thumb .svc__thumb { width: 6rem; }
+}
+
 .svc__num { font-size: 0.75rem; color: var(--pink); letter-spacing: 0.14em; }
 .svc__name {
   font-family: var(--font-display);

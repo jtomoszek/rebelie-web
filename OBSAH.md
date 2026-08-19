@@ -79,6 +79,7 @@ dodá ceníky, doplní se.
 | oblečení | džínová bunda / křivák | od 3 500 Kč |
 | oblečení | sako a kabát | od 4 500 Kč |
 | oblečení | trika, mikiny, šaty | od 1 800 Kč |
+| oblečení | klobouk | od 2 500 Kč |
 | oblečení | tenisky a doplňky | od 1 500 Kč |
 | obrazy | hotový obraz z galerie | od 4 500 Kč |
 | obrazy | portrét na míru | od 8 000 Kč |
@@ -118,7 +119,7 @@ hlavně o tyhle:
 - **Úvodní odstavec na homepage** (~40 slov) — „Kůže, textil, plátno…"
 - **Úvod ke stránkám oblečení a obrazů** (~110 slov na stránku); stránka
   bodypaintingu a „O mně" už jsou z textů od Pavly
-- **Popisy jednotlivých služeb** (~30 slov každý)
+- **Popisy jednotlivých služeb** (zkráceno na 1–2 věty, každá služba má malý náhled podle připomínky Pavly)
 - **Časté dotazy na `kontakt.html`** (5 otázek) — hlavně ty o bezpečnosti
   barev a praní; tam je potřeba, aby odpovídaly skutečnosti
 
