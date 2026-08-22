@@ -14,6 +14,7 @@ upravte příslušnou položku v data/udalosti.json a spusťte skript znovu.
 Nic se nedomýšlí: prázdné pole se prostě nezobrazí.
 """
 
+import hashlib
 import html
 import json
 import os
@@ -28,6 +29,16 @@ UKAZKA_NA_HOMEPAGE = 4   # kolik nejnovějších akcí se ukáže na úvodní st
 
 def e(text):
     return html.escape(str(text), quote=True)
+
+
+def otisk(cesta):
+    """Krátký otisk obsahu souboru. Přidává se k URL obrázku jako ?v=…,
+    aby prohlížeče po výměně fotky pod stejným názvem načetly novou."""
+    try:
+        with open(os.path.join(ZDE, cesta), "rb") as f:
+            return hashlib.md5(f.read()).hexdigest()[:8]
+    except OSError:
+        return "0"
 
 
 def dlazdice(u, odsazeni="      "):
@@ -50,8 +61,9 @@ def dlazdice(u, odsazeni="      "):
         % (o, e(u["slug"])),
         '%s          aria-label="Otevřít galerii: %s – %s">'
         % (o, e(u["nazev"]), fotek),
-        '%s    <img src="img/udalosti/%s/thumb/%s" alt="%s" width="%d" height="%d" loading="lazy">'
+        '%s    <img src="img/udalosti/%s/thumb/%s?v=%s" alt="%s" width="%d" height="%d" loading="lazy">'
         % (o, e(u["slug"]), e(obalka["soubor"]),
+           otisk("img/udalosti/%s/thumb/%s" % (u["slug"], obalka["soubor"])),
            e(u["nazev"] + " – fotografie z akce"),
            obalka["sirka"], obalka["vyska"]),
         '%s    <span class="event__count">%s</span>' % (o, fotek),
@@ -74,7 +86,9 @@ def dlazdice(u, odsazeni="      "):
 def data_pro_js(udalosti):
     """Malý JSON pro lightbox – jen názvy a soubory, ať stránka neztloustne."""
     mapa = {u["slug"]: {"nazev": u["nazev"],
-                        "fotky": [f["soubor"] for f in u["fotky"]]}
+                        "fotky": ["%s?v=%s" % (f["soubor"],
+                                  otisk("img/udalosti/%s/%s" % (u["slug"], f["soubor"])))
+                                  for f in u["fotky"]]}
             for u in udalosti if u["fotky"]}
     return json.dumps(mapa, ensure_ascii=False, separators=(",", ":"))
 
