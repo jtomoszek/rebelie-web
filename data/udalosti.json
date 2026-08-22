@@ -260,18 +260,18 @@
       },
       {
         "soubor": "colours-of-ostrava-2026-02.jpg",
-        "sirka": 1400,
-        "vyska": 933
-      },
-      {
-        "soubor": "colours-of-ostrava-2026-03.jpg",
         "sirka": 933,
         "vyska": 1400
       },
       {
-        "soubor": "colours-of-ostrava-2026-04.jpg",
+        "soubor": "colours-of-ostrava-2026-03.jpg",
         "sirka": 1400,
         "vyska": 933
+      },
+      {
+        "soubor": "colours-of-ostrava-2026-04.jpg",
+        "sirka": 933,
+        "vyska": 1400
       },
       {
         "soubor": "colours-of-ostrava-2026-05.jpg",
@@ -280,8 +280,8 @@
       },
       {
         "soubor": "colours-of-ostrava-2026-06.jpg",
-        "sirka": 933,
-        "vyska": 1400
+        "sirka": 1400,
+        "vyska": 933
       },
       {
         "soubor": "colours-of-ostrava-2026-07.jpg",
@@ -315,13 +315,13 @@
       },
       {
         "soubor": "colours-of-ostrava-2026-13.jpg",
-        "sirka": 1400,
-        "vyska": 933
+        "sirka": 933,
+        "vyska": 1400
       },
       {
         "soubor": "colours-of-ostrava-2026-14.jpg",
-        "sirka": 933,
-        "vyska": 1400
+        "sirka": 1400,
+        "vyska": 933
       },
       {
         "soubor": "colours-of-ostrava-2026-15.jpg",
@@ -345,8 +345,8 @@
       },
       {
         "soubor": "colours-of-ostrava-2026-19.jpg",
-        "sirka": 1400,
-        "vyska": 933
+        "sirka": 933,
+        "vyska": 1400
       },
       {
         "soubor": "colours-of-ostrava-2026-20.jpg",
@@ -355,18 +355,18 @@
       },
       {
         "soubor": "colours-of-ostrava-2026-21.jpg",
-        "sirka": 933,
-        "vyska": 1400
-      },
-      {
-        "soubor": "colours-of-ostrava-2026-22.jpg",
         "sirka": 1400,
         "vyska": 933
       },
       {
-        "soubor": "colours-of-ostrava-2026-23.jpg",
+        "soubor": "colours-of-ostrava-2026-22.jpg",
         "sirka": 933,
         "vyska": 1400
+      },
+      {
+        "soubor": "colours-of-ostrava-2026-23.jpg",
+        "sirka": 1400,
+        "vyska": 933
       },
       {
         "soubor": "colours-of-ostrava-2026-24.jpg",
@@ -375,13 +375,13 @@
       },
       {
         "soubor": "colours-of-ostrava-2026-25.jpg",
-        "sirka": 1400,
-        "vyska": 933
+        "sirka": 933,
+        "vyska": 1400
       },
       {
         "soubor": "colours-of-ostrava-2026-26.jpg",
-        "sirka": 933,
-        "vyska": 1400
+        "sirka": 1400,
+        "vyska": 933
       },
       {
         "soubor": "colours-of-ostrava-2026-27.jpg",
@@ -390,13 +390,13 @@
       },
       {
         "soubor": "colours-of-ostrava-2026-28.jpg",
-        "sirka": 1400,
-        "vyska": 933
+        "sirka": 933,
+        "vyska": 1400
       },
       {
         "soubor": "colours-of-ostrava-2026-29.jpg",
-        "sirka": 933,
-        "vyska": 1400
+        "sirka": 1400,
+        "vyska": 933
       },
       {
         "soubor": "colours-of-ostrava-2026-30.jpg",
@@ -420,12 +420,12 @@
       },
       {
         "soubor": "colours-of-ostrava-2026-34.jpg",
-        "sirka": 787,
+        "sirka": 933,
         "vyska": 1400
       },
       {
         "soubor": "colours-of-ostrava-2026-35.jpg",
-        "sirka": 933,
+        "sirka": 787,
         "vyska": 1400
       }
     ]
