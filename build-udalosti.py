@@ -31,6 +31,16 @@ def e(text):
     return html.escape(str(text), quote=True)
 
 
+def rozmery(cesta):
+    """Šířka a výška obrázku přes sips (součást macOS)."""
+    import subprocess
+    out = subprocess.run(["sips", "-g", "pixelWidth", "-g", "pixelHeight", cesta],
+                         capture_output=True, text=True).stdout
+    w = re.search(r"pixelWidth:\s*(\d+)", out)
+    h = re.search(r"pixelHeight:\s*(\d+)", out)
+    return (int(w.group(1)), int(h.group(1))) if w and h else None
+
+
 def otisk(cesta):
     """Krátký otisk obsahu souboru. Přidává se k URL obrázku jako ?v=…,
     aby prohlížeče po výměně fotky pod stejným názvem načetly novou."""
@@ -46,8 +56,17 @@ def dlazdice(u, odsazeni="      "):
     if not u["fotky"]:
         return ""
 
-    obalka = u["fotky"][0]
+    # Obálka dlaždice: první fotka, nebo libovolná jiná zadaná v udalosti.json
+    # jako "obalka": "slug-akce/soubor.jpg" (může být i z jiné akce).
     pocet = len(u["fotky"])
+    vlastni = u.get("obalka")
+    if vlastni:
+        slug_ob, soubor_ob = vlastni.split("/", 1)
+        rv = rozmery(os.path.join(ZDE, "img", "udalosti", slug_ob, "thumb", soubor_ob))
+        obalka = {"slug": slug_ob, "soubor": soubor_ob,
+                  "sirka": rv[0] if rv else 0, "vyska": rv[1] if rv else 0}
+    else:
+        obalka = dict(u["fotky"][0], slug=u["slug"])
     fotek = "%d %s" % (pocet, "fotka" if pocet == 1 else
                        ("fotky" if pocet < 5 else "fotek"))
 
@@ -62,8 +81,8 @@ def dlazdice(u, odsazeni="      "):
         '%s          aria-label="Otevřít galerii: %s – %s">'
         % (o, e(u["nazev"]), fotek),
         '%s    <img src="img/udalosti/%s/thumb/%s?v=%s" alt="%s" width="%d" height="%d" loading="lazy">'
-        % (o, e(u["slug"]), e(obalka["soubor"]),
-           otisk("img/udalosti/%s/thumb/%s" % (u["slug"], obalka["soubor"])),
+        % (o, e(obalka["slug"]), e(obalka["soubor"]),
+           otisk("img/udalosti/%s/thumb/%s" % (obalka["slug"], obalka["soubor"])),
            e(u["nazev"] + " – fotografie z akce"),
            obalka["sirka"], obalka["vyska"]),
         '%s    <span class="event__count">%s</span>' % (o, fotek),

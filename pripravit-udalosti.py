@@ -211,7 +211,7 @@ def main():
         u = zpracuj_slozku(os.path.join(ZDROJ, nazev), nazev, jen_data)
         stary = drive.get(u["slug"])
         if stary:
-            for klic in ("nazev", "typ", "misto", "popis", "umisteni"):
+            for klic in ("nazev", "typ", "misto", "popis", "umisteni", "obalka"):
                 if stary.get(klic):
                     u[klic] = stary[klic]
         print("    → %s (%d fotek)" % (u["slug"], len(u["fotky"])))
