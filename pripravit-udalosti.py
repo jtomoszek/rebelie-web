@@ -198,10 +198,22 @@ def main():
     slozky = sorted(d for d in os.listdir(ZDROJ)
                     if os.path.isdir(os.path.join(ZDROJ, d)))
 
+    # Ručně doplněné údaje (typ, místo, popis, umístění, upravený název)
+    # z předchozího běhu se zachovají – jinak by je každé přegenerování smazalo.
+    drive = {}
+    if os.path.exists(DATA):
+        with open(DATA, encoding="utf-8") as f:
+            drive = {d["slug"]: d for d in json.load(f)}
+
     udalosti = []
     for nazev in slozky:
         print("  %s" % nazev)
         u = zpracuj_slozku(os.path.join(ZDROJ, nazev), nazev, jen_data)
+        stary = drive.get(u["slug"])
+        if stary:
+            for klic in ("nazev", "typ", "misto", "popis", "umisteni"):
+                if stary.get(klic):
+                    u[klic] = stary[klic]
         print("    → %s (%d fotek)" % (u["slug"], len(u["fotky"])))
         udalosti.append(u)
 
